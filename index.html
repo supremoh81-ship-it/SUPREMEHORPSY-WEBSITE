@@ -103,8 +103,9 @@ nav{
   animation:pulseGlow 4.6s ease-in-out infinite;
 }
 .nav-inner{max-width:1160px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;position:relative}
-.logo{font-family:'Sora',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:-0.01em;text-decoration:none}
-.logo span{color:var(--violet)}
+.logo{display:inline-flex;align-items:center;text-decoration:none;line-height:0}
+.logo img{height:44px;width:auto;border-radius:10px;display:block}
+.foot .logo img{height:34px}
 .nav-links{display:flex;gap:26px;list-style:none;align-items:center}
 .nav-links a{text-decoration:none;font-size:.92rem;font-weight:500;color:var(--muted);transition:color .2s;padding:8px 0;display:inline-block}
 .nav-links a:hover{color:var(--violet)}
@@ -248,7 +249,6 @@ nav{
 footer{padding:44px 0 56px;border-top:1px solid rgba(42,166,242,.14);margin-top:40px}
 .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
 .foot small{color:var(--muted);font-size:.82rem}
-.foot .logo{font-size:.95rem}
 
 /* ---------- motion system ---------- */
 /* Cards get one clean entrance via .reveal (scroll-triggered fade+lift below),
@@ -299,7 +299,7 @@ footer{padding:44px 0 56px;border-top:1px solid rgba(42,166,242,.14);margin-top:
 <!-- ================= NAV ================= -->
 <nav>
   <div class="nav-inner">
-    <a class="logo" href="#main">SUPREMEHORPSY MEDIA</a>
+    <a class="logo" href="#main"><img src="assets/logo.jpg" alt="SUPREMEHORPSY MEDIA home"></a>
     <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="navlinks" onclick="const l=document.getElementById('navlinks');l.classList.toggle('open');this.setAttribute('aria-expanded', l.classList.contains('open'))">☰</button>
     <ul class="nav-links" id="navlinks">
       <li><a href="#services">Services</a></li>
@@ -606,7 +606,7 @@ footer{padding:44px 0 56px;border-top:1px solid rgba(42,166,242,.14);margin-top:
 <!-- ================= FOOTER ================= -->
 <footer>
   <div class="wrap foot">
-    <a class="logo" href="#main">SUPREMEHORPSY MEDIA</a>
+    <a class="logo" href="#main"><img src="assets/logo.jpg" alt="SUPREMEHORPSY MEDIA home"></a>
     <small>© 2026 SUPREMEHORPSY MEDIA. Music promotion, sync licensing and channel management.</small>
   </div>
 </footer>
