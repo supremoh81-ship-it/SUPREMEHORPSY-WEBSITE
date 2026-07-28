@@ -3,30 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SUPREMEHORPSY MEDIA | Music Promotion, Sync Licensing and Channel Management</title>
-<meta name="description" content="SUPREMEHORPSY MEDIA grows artists, authors and creators with proof first: sync licensing, music promotion, Rumble channel and book marketing.">
+<title>SUPREMEHORPSY | Music Promotion, Sync Licensing and Channel Management</title>
+<meta name="description" content="SUPREMEHORPSY grows artists, authors and creators with proof first: sync licensing, music promotion, Rumble channel and book marketing.">
 <link rel="canonical" href="https://supremehorpsy-website.vercel.app/">
 <meta name="theme-color" content="#0C0C0C">
-<link rel="icon" type="image/jpeg" href="assets/logo.jpg">
-<link rel="apple-touch-icon" href="assets/logo.jpg">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="apple-touch-icon" href="assets/logo.png">
 
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="SUPREMEHORPSY MEDIA">
-<meta property="og:title" content="SUPREMEHORPSY MEDIA | Music Promotion, Sync Licensing and Channel Management">
+<meta property="og:site_name" content="SUPREMEHORPSY">
+<meta property="og:title" content="SUPREMEHORPSY | Music Promotion, Sync Licensing and Channel Management">
 <meta property="og:description" content="We grow artists and creators with proof first, promises second. Sync licensing readiness, music promotion, Rumble channel management and book marketing.">
-<meta property="og:image" content="https://supremehorpsy-website.vercel.app/assets/logo.jpg">
+<meta property="og:image" content="https://supremehorpsy-website.vercel.app/assets/brand-supremoh.jpg">
 <meta property="og:url" content="https://supremehorpsy-website.vercel.app/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SUPREMEHORPSY MEDIA | Music Promotion, Sync Licensing and Channel Management">
+<meta name="twitter:title" content="SUPREMEHORPSY | Music Promotion, Sync Licensing and Channel Management">
 <meta name="twitter:description" content="We grow artists and creators with proof first, promises second. Sync licensing readiness, music promotion, Rumble channel management and book marketing.">
-<meta name="twitter:image" content="https://supremehorpsy-website.vercel.app/assets/logo.jpg">
+<meta name="twitter:image" content="https://supremehorpsy-website.vercel.app/assets/brand-supremoh.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "SUPREMEHORPSY",
+  "url": "https://supremehorpsy-website.vercel.app",
+  "logo": "https://supremehorpsy-website.vercel.app/assets/logo.png",
+  "founder": { "@type": "Person", "name": "Supremoh" },
+  "email": "horpsymediagroup@gmail.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Osogbo", "addressCountry": "NG" },
+  "sameAs": ["https://t.me/supremehorpsy"]
+}
+</script>
+
 <style>
 /* ============================================================
-   SUPREMEHORPSY MEDIA  |  Design tokens
+   SUPREMEHORPSY  |  Design tokens
    Palette: warm cream base, black/charcoal dark stage, orange highlight
    Type: Kanit display, Inter body, JetBrains Mono for metrics
    ============================================================ */
@@ -88,7 +103,7 @@ a{color:inherit}
   background:linear-gradient(120deg,var(--violet-bright) 0%,var(--sky) 100%);
   background-size:100% 100%;background-position:0 0;
   color:var(--dark-bg);-webkit-text-fill-color:var(--dark-bg);
-  padding:0 .18em;border-radius:8px;
+  padding:0.05em 0.2em;margin:-0.05em 0;border-radius:8px;
 }
 .hl.v{background:linear-gradient(120deg,rgba(255,106,19,.34),rgba(255,106,19,.18));background-size:100% 42%;background-position:0 78%}
 
@@ -138,8 +153,8 @@ nav{
 }
 .nav-inner{max-width:1160px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;position:relative}
 .logo{display:inline-flex;align-items:center;text-decoration:none;line-height:0}
-.logo img{height:44px;width:auto;border-radius:10px;display:block}
-.foot .logo img{height:34px}
+.logo img{height:56px;width:auto;padding:4px 0;display:block}
+.foot .logo img{height:auto;width:220px;max-width:220px;padding:0}
 .nav-links{display:flex;gap:26px;list-style:none;align-items:center}
 .nav-links a{font-family:'Kanit',sans-serif;text-transform:uppercase;letter-spacing:.04em;text-decoration:none;font-size:.92rem;font-weight:500;color:var(--mist-dim);transition:color .2s;padding:8px 0;display:inline-block}
 .nav-links a:hover{color:var(--violet-bright)}
@@ -172,7 +187,7 @@ nav{
 .hero-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:center;margin-bottom:56px}
 .hero-copy{max-width:720px}
 .hero-heading{
-  font-family:'Kanit',sans-serif;font-weight:900;text-transform:uppercase;letter-spacing:-0.01em;line-height:1.08;
+  font-family:'Kanit',sans-serif;font-weight:900;text-transform:uppercase;letter-spacing:-0.01em;line-height:1.15;
   background:linear-gradient(180deg,var(--mist) 0%,var(--sky) 100%);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
 }
@@ -200,6 +215,8 @@ nav{
 .btn-primary:hover{box-shadow:0 14px 32px rgba(217,78,0,0.4)}
 .btn-ghost{background:rgba(255,255,255,0.7);border:1px solid rgba(255,178,56,0.35);color:var(--sky-deep)}
 .btn-ghost:hover{border-color:var(--violet-bright);color:var(--violet)}
+.btn-ghost-dark{border:2px solid rgba(243,236,226,.4);color:var(--mist);background:transparent}
+.btn-ghost-dark:hover{background:rgba(243,236,226,.08);border-color:var(--mist)}
 
 .metric-rail{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .metric{padding:24px 26px;transition:box-shadow .25s,border-color .25s;background:rgba(255,255,255,.04);border:1px solid rgba(243,236,226,.14);box-shadow:none}
@@ -252,7 +269,6 @@ nav{
 #proof .quote blockquote{color:var(--mist)}
 #proof .quote .who{color:var(--mist)}
 #proof .quote .who span{color:var(--mist-dim)}
-#proof .shorts-label{color:var(--sky)}
 #proof .glass{background:rgba(255,255,255,.03);border:1px solid rgba(243,236,226,.14);box-shadow:0 30px 70px rgba(0,0,0,.55)}
 
 /* case cards stack and settle as later cards scroll over them */
@@ -296,12 +312,8 @@ nav{
   border:1px solid rgba(243,236,226,.14);padding:10px 20px;border-radius:999px;flex-shrink:0;
 }
 
-.btn-ghost-dark{border:2px solid rgba(243,236,226,.4);color:var(--mist);background:transparent}
-.btn-ghost-dark:hover{background:rgba(243,236,226,.08);border-color:var(--mist)}
-.proof-cta{text-align:center;margin-top:56px}
-
 /* ---------- testimonials ---------- */
-.quote-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:64px}
+.quote-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:900px;margin:0 auto 64px}
 .quote{padding:32px 24px;display:flex;flex-direction:column;gap:16px;transition:box-shadow .25s,border-color .25s}
 .quote:hover{box-shadow:0 18px 40px rgba(194,65,12,0.12)}
 .quote blockquote{font-size:1rem;color:var(--ink)}
@@ -309,22 +321,30 @@ nav{
 .quote .who{font-size:.85rem;font-weight:600}
 .quote .who span{display:block;font-weight:400;color:var(--muted);font-size:.78rem}
 
-.video-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
-.video-slot{aspect-ratio:16/9;display:grid;place-items:center;text-align:center;padding:20px;position:relative;overflow:hidden;width:100%}
-.video-slot .ph{color:var(--muted);font-size:.9rem;max-width:320px}
-.video-slot .ph strong{display:block;color:var(--ink);font-family:'Kanit',sans-serif;margin-bottom:6px}
-.video-slot iframe{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:var(--radius)}
-.shorts-label{font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--sky-deep);margin:32px 0 18px}
-.shorts-grid{display:grid;grid-template-columns:repeat(2,minmax(180px,320px));gap:24px;justify-content:center}
-.video-slot.vertical{aspect-ratio:9/16;width:100%;max-width:320px;margin:0 auto;padding:0}
-/* For vertical slots, make the iframe fill and crop to the portrait frame */
-.video-slot.vertical iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:var(--radius);display:block}
+/* Pinned horizontal-scroll gallery — vertical page scroll drives horizontal
+   translation while the viewport stays sticky, same technique as motion.dev's
+   scroll-horizontal example, hand-built without React/framer-motion. */
+.video-rail-pin{position:relative;height:150vh;margin-bottom:8px}
+.video-rail-viewport{position:sticky;top:calc(5.5rem);height:260px;overflow:hidden}
+.video-rail{display:flex;gap:24px;height:100%;will-change:transform}
+.video-tile{flex:0 0 auto;height:100%;aspect-ratio:16/9;position:relative;overflow:hidden;border-radius:var(--radius)}
+.video-tile.vertical{aspect-ratio:9/16}
+.video-tile iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
 /* ---------- packages ---------- */
 .pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
 .pkg{padding:32px 24px;display:flex;flex-direction:column;gap:16px;position:relative;transition:box-shadow .25s,border-color .25s}
 .pkg:hover{box-shadow:0 18px 40px rgba(194,65,12,0.12)}
-.pkg.featured{border:2px solid var(--violet-bright);box-shadow:0 24px 60px rgba(217,78,0,.18)}
+.pkg.featured{border:2px solid var(--violet-bright);box-shadow:0 24px 60px rgba(217,78,0,.18);isolation:isolate}
+/* Border beam — a rotating arc of light traces the featured card's edge (motion.dev pricing-sections pattern, CSS-only) */
+.pkg.featured::before{
+  content:"";position:absolute;inset:-2px;border-radius:inherit;padding:2px;
+  background:conic-gradient(from 0deg,transparent 0deg,transparent 260deg,var(--sky) 300deg,var(--violet-bright) 330deg,transparent 360deg);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  animation:beamSpin 3.2s linear infinite;z-index:-1;pointer-events:none;
+}
+@keyframes beamSpin{to{transform:rotate(360deg)}}
 .pkg .flag{
   position:absolute;top:-14px;left:50%;transform:translateX(-50%);
   background:linear-gradient(120deg,var(--sky-deep),var(--violet));color:#fff;
@@ -358,10 +378,37 @@ nav{
 .cta-panel p{color:var(--mist-dim);max-width:560px;margin:0 auto 32px}
 .cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 
+.contact-form{text-align:left;max-width:560px;margin:40px auto 0;display:flex;flex-direction:column;gap:16px}
+.contact-form .form-row{display:flex;gap:16px}
+.contact-form .field{flex:1;display:flex;flex-direction:column;gap:6px}
+.contact-form label{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mist-dim)}
+.contact-form input,.contact-form select,.contact-form textarea{
+  font-family:'Inter',sans-serif;font-size:.95rem;color:var(--mist);
+  background:rgba(255,255,255,.05);border:1px solid rgba(243,236,226,.2);border-radius:10px;
+  padding:12px 14px;transition:border-color .2s,background .2s;
+}
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{
+  outline:none;border-color:var(--violet-bright);background:rgba(255,255,255,.08);
+}
+.contact-form textarea{resize:vertical;min-height:100px}
+.contact-form button{align-self:flex-start;margin-top:4px}
+.contact-form .form-note{font-size:.82rem;color:var(--mist-dim);margin-top:-6px}
+@media (max-width:640px){.contact-form .form-row{flex-direction:column}}
+
 /* ---------- footer ---------- */
-footer{padding:44px 0 56px;border-top:1px solid rgba(255,178,56,.14);margin-top:40px}
-.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-.foot small{color:var(--muted);font-size:.82rem}
+footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:40px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;margin-bottom:32px}
+.foot-brand .logo{margin-bottom:14px}
+.foot-tagline{font-family:'Kanit',sans-serif;font-weight:600;color:var(--ink);margin-bottom:6px}
+.foot-location{color:var(--muted);font-size:.9rem;margin-bottom:10px}
+.foot-email{color:var(--sky-deep);font-weight:600;text-decoration:none;font-size:.9rem}
+.foot-email:hover{color:var(--violet)}
+.foot-links h3,.foot-legal h3{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.foot-links ul,.foot-legal ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.foot-links a,.foot-legal a{color:var(--ink);text-decoration:none;font-size:.92rem;transition:color .2s}
+.foot-links a:hover,.foot-legal a:hover{color:var(--violet)}
+.foot-bottom{border-top:1px solid rgba(255,178,56,.14);padding-top:20px}
+.foot-bottom small{color:var(--muted);font-size:.82rem}
 
 /* ---------- motion system ---------- */
 /* Cards get one clean entrance via .reveal (scroll-triggered fade+lift below),
@@ -379,7 +426,7 @@ footer{padding:44px 0 56px;border-top:1px solid rgba(255,178,56,.14);margin-top:
 @media (prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none;filter:none;transition:none}
   html{scroll-behavior:auto}
-  .orb,.service-card,.member,.quote,.pkg,.metric,.case-media,.btn,.nav-cta,nav,section::before,.hero::before,.cta-panel::before,.btn-pulse{animation:none !important;transition:none !important}
+  .orb,.service-card,.member,.quote,.pkg,.metric,.case-media,.btn,.nav-cta,nav,section::before,.hero::before,.cta-panel::before,.btn-pulse,.pkg.featured::before{animation:none !important;transition:none !important}
   .orb{transform:none !important}
   .cursor-glow{display:none}
   .scroll-progress{display:none}
@@ -388,6 +435,9 @@ footer{padding:44px 0 56px;border-top:1px solid rgba(255,178,56,.14);margin-top:
   .case-media > img{max-height:none}
   .word-reveal{opacity:1 !important}
   .marquee-row{transform:none !important}
+  .video-rail-pin{height:auto !important}
+  .video-rail-viewport{position:static !important;overflow-x:auto !important}
+  .video-rail{transform:none !important}
 }
 
 /* ---------- responsive ---------- */
@@ -406,11 +456,20 @@ footer{padding:44px 0 56px;border-top:1px solid rgba(255,178,56,.14);margin-top:
   .case-pin{height:auto !important;margin-bottom:32px}
   .case{position:static !important;top:auto !important;transform:none !important;max-height:none !important;overflow:visible !important}
   .case-media > img{max-height:none}
+  .foot-grid{grid-template-columns:1fr 1fr;row-gap:28px}
+  .foot-brand{grid-column:1 / -1}
+  /* Scroll-jacking a pinned gallery feels heavy on touch/tablet — swap for a natural swipeable strip */
+  .video-rail-pin{height:auto !important}
+  .video-rail-viewport{position:static !important;overflow-x:auto !important;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding-bottom:8px}
+  .video-rail{transform:none !important}
+  .video-tile{scroll-snap-align:start}
 }
 @media (max-width:640px){
   section{padding:70px 0}
-  .services-grid,.quote-grid,.team-grid,.values-grid,.metric-rail,.video-grid{grid-template-columns:1fr}
-  .shorts-grid{grid-template-columns:repeat(2,1fr);gap:14px}
+  .services-grid,.quote-grid,.team-grid,.values-grid,.metric-rail{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  /* ~9.5% smaller floor so the nowrap "promises second." unit has room at narrow widths without overflowing */
+  .hero h1{font-size:clamp(1.9rem,4.4vw,3.4rem)}
   .nav-links{
     display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;
     background:rgba(12,12,12,.96);backdrop-filter:blur(16px);padding:22px;gap:18px;
@@ -431,7 +490,7 @@ footer{padding:44px 0 56px;border-top:1px solid rgba(255,178,56,.14);margin-top:
 <!-- ================= NAV ================= -->
 <nav>
   <div class="nav-inner">
-    <a class="logo" href="#main"><img src="assets/logo.jpg" alt="SUPREMEHORPSY MEDIA home"></a>
+    <a class="logo" href="#main"><img src="assets/logo.png" alt="SUPREMEHORPSY home"></a>
     <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="navlinks" onclick="const l=document.getElementById('navlinks');l.classList.toggle('open');this.setAttribute('aria-expanded', l.classList.contains('open'))">☰</button>
     <ul class="nav-links" id="navlinks">
       <li><a href="#services">Services</a></li>
@@ -452,8 +511,8 @@ footer{padding:44px 0 56px;border-top:1px solid rgba(255,178,56,.14);margin-top:
     <div class="hero-grid">
       <div class="hero-copy">
         <span class="eyebrow">Music Promotion · Sync Licensing · Channel Growth</span>
-        <h1 class="hero-heading">We grow artists and creators with <span class="hl v">proof first</span>, promises second.</h1>
-        <p class="lede">SUPREMEHORPSY MEDIA prepares independent artists for sync licensing, promotes music that deserves an audience, and manages channels and books until the numbers speak for themselves. Every engagement starts with a <span class="hl">free proof of work</span>. You see results before you spend.</p>
+        <h1 class="hero-heading">We grow artists and creators with <span class="hl v">proof first</span>, <span style="white-space:nowrap">promises second.</span></h1>
+        <p class="lede">SUPREMEHORPSY prepares independent artists for sync licensing, promotes music that deserves an audience, and manages channels and books until the numbers speak for themselves. Every engagement starts with a <span class="hl">free proof of work</span>. You see results before you spend.</p>
         <div class="hero-ctas">
           <a class="btn btn-primary btn-pulse" href="#contact">Request Your Free Proof of Work</a>
           <a class="btn btn-ghost" href="#proof">See the Receipts</a>
@@ -461,7 +520,7 @@ footer{padding:44px 0 56px;border-top:1px solid rgba(255,178,56,.14);margin-top:
       </div>
       <div class="hero-portrait">
         <div class="magnet-portrait" id="heroPortrait">
-          <img src="assets/team-supremoh.jpg" alt="Supremoh, founder of SUPREMEHORPSY MEDIA" fetchpriority="high">
+          <img src="assets/brand-supremoh.jpg" alt="Supremoh, founder of SUPREMEHORPSY — Lead. Build. Impact." fetchpriority="high">
         </div>
       </div>
     </div>
@@ -525,25 +584,25 @@ footer{padding:44px 0 56px;border-top:1px solid rgba(255,178,56,.14);margin-top:
     <p class="section-sub">Each provider on the team owns a service line and carries their own track record. You always know exactly who is working on your project.</p>
     <div class="team-grid">
       <div class="member glass reveal">
-        <div class="avatar"><img src="assets/team-supremoh.jpg" alt="Supremoh, founder of Supremoh Orpsy Media Group"></div>
+        <div class="avatar"><img src="assets/team-supremoh.jpg" alt="Supremoh, founder of SUPREMEHORPSY" loading="lazy"></div>
         <h3>Supremoh</h3>
         <div class="role">Founder and Sync Licensing Specialist</div>
         <p>Leads sync licensing readiness and overall growth strategy. Built the proof first model the whole team works by.</p>
       </div>
       <div class="member glass reveal">
-        <div class="avatar"><img src="assets/team-biseman.jpg" alt="Baseman, channel growth specialist"></div>
-        <h3>Baseman</h3>
+        <div class="avatar"><img src="assets/team-biseman.jpg" alt="Biseman, Channel Growth and Rumble Promotion specialist" loading="lazy"></div>
+        <h3>Biseman</h3>
         <div class="role">Channel Growth and Rumble Promotion</div>
         <p>Rumble and video channel promotion. Grew a client show to a five figure subscriber count with targeted audience work.</p>
       </div>
       <div class="member glass reveal">
-        <div class="avatar"><img src="assets/team-bernardo.jpg" alt="Bernardo, music promotion specialist"></div>
+        <div class="avatar"><img src="assets/team-bernardo.jpg" alt="Bernardo, SUPREMEHORPSY music promotion specialist" loading="lazy"></div>
         <h3>Bernardo</h3>
         <div class="role">Music Promotion and Artist Growth</div>
         <p>Drives music promotion and artist growth, turning finished releases into real audiences through targeted campaigns and consistent release rollouts.</p>
       </div>
       <div class="member glass reveal">
-        <div class="avatar"><img src="assets/team-wura.jpg" alt="Wura, book marketing specialist"></div>
+        <div class="avatar"><img src="assets/team-wura.jpg" alt="Wura, SUPREMEHORPSY book marketing specialist" loading="lazy"></div>
         <h3>Wura</h3>
         <div class="role">Book and Author Marketing</div>
         <p>Author campaigns, book promotion and reader outreach for independent writers, from launch emails to social content.</p>
@@ -619,58 +678,50 @@ footer{padding:44px 0 56px;border-top:1px solid rgba(255,178,56,.14);margin-top:
     <!-- Written testimonials -->
     <div class="quote-grid">
       <div class="quote glass reveal">
-        <blockquote>Partnering with Supremoh has been one of the most valuable decisions I've made for my music career. I've already received 5 licensing requests. I never expected results of this caliber so quickly.</blockquote>
+        <blockquote>Partnering with Supremoh has been one of the most valuable decisions I've made for my music career. I've already received 5 licensing requests. I never expected results of this caliber so quickly. What stands out is the focus on long term artist development rather than short term promotion — every step has felt intentional, professional, and designed to build sustainable growth.</blockquote>
         <div class="who">Morris Jane <span>Independent Artist · Sync Consulting Client</span></div>
       </div>
       <div class="quote glass reveal">
-        <blockquote>What stands out is the focus on long term artist development rather than short term promotion. Every step has felt intentional, professional, and designed to build sustainable growth.</blockquote>
-        <div class="who">Morris Jane <span>On working with the team</span></div>
-      </div>
-      <div class="quote glass reveal">
         <blockquote>The changes were made and all are approved. Thank you for the transparency and the steady updates through the whole campaign.</blockquote>
-        <div class="who">D. L. <span>Author · Book Marketing Client</span></div>
+        <div class="who">D. L. <span>Independent Author · Book Marketing Client (name withheld on request)</span></div>
       </div>
     </div>
 
-    <!-- Video testimonials -->
+    <!-- Video testimonials — pinned horizontal-scroll gallery -->
     <h3 style="font-family:'Kanit',sans-serif;font-size:1.4rem;margin-bottom:24px">Hear it from clients directly</h3>
-    <div class="video-grid">
-      <!-- VIDEO 1: Brian Kruse — Kruse Control Show (16:9) -->
-      <div class="video-slot glass reveal">
-        <iframe src="https://www.youtube.com/embed/BdjMERcC5lY"
-          title="Client testimonial from Brian Kruse, host of the Kruse Control Show"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen loading="lazy"></iframe>
+    <div class="video-rail-pin" id="videoRailPin">
+      <div class="video-rail-viewport" id="videoRailViewport">
+        <div class="video-rail" id="videoRail">
+          <!-- VIDEO 1: Brian Kruse — Kruse Control Show (16:9) -->
+          <div class="video-tile glass reveal">
+            <iframe src="https://www.youtube.com/embed/BdjMERcC5lY"
+              title="Client testimonial from Brian Kruse, host of the Kruse Control Show"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+          <!-- VIDEO 2: Redeemed By Grace Fellowship — ministry testimonial (16:9) -->
+          <div class="video-tile glass reveal">
+            <iframe src="https://www.youtube.com/embed/8Lu9ni3j_Xs"
+              title="Client testimonial from Redeemed By Grace Fellowship, ministry digital growth client"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+          <!-- VIDEO 3: Rumble/YouTube creator promotion (short, 9:16) -->
+          <div class="video-tile vertical glass reveal">
+            <iframe src="https://www.youtube.com/embed/94ax0OWa3bw"
+              title="Client testimonial from a Rumble creator on our channel promotion service"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+          <!-- VIDEO 4: Ultramagachuck — Rumble creator (short, 9:16) -->
+          <div class="video-tile vertical glass reveal">
+            <iframe src="https://www.youtube.com/embed/ee9k0EaQ0Ew"
+              title="Client testimonial from Ultramagachuck, Rumble channel growth client"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
       </div>
-      <!-- VIDEO 2: Redeemed By Grace Fellowship — ministry testimonial (16:9) -->
-      <div class="video-slot glass reveal">
-        <iframe src="https://www.youtube.com/embed/8Lu9ni3j_Xs"
-          title="Client testimonial from Redeemed By Grace Fellowship, ministry digital growth client"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen loading="lazy"></iframe>
-      </div>
-    </div>
-
-    <div class="shorts-label">Quick clips</div>
-    <div class="shorts-grid">
-      <!-- VIDEO 3: Rumble/YouTube creator promotion (short, 9:16) -->
-      <div class="video-slot vertical glass reveal">
-        <iframe src="https://www.youtube.com/embed/94ax0OWa3bw"
-          title="Client testimonial from a Rumble creator on our channel promotion service"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen loading="lazy"></iframe>
-      </div>
-      <!-- VIDEO 4: Ultramagachuck — Rumble creator (short, 9:16) -->
-      <div class="video-slot vertical glass reveal">
-        <iframe src="https://www.youtube.com/embed/ee9k0EaQ0Ew"
-          title="Client testimonial from Ultramagachuck, Rumble channel growth client"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen loading="lazy"></iframe>
-      </div>
-    </div>
-
-    <div class="proof-cta">
-      <a class="btn btn-ghost-dark" href="#contact">See More Proof</a>
     </div>
   </div>
 </section>
@@ -754,9 +805,36 @@ footer{padding:44px 0 56px;border-top:1px solid rgba(255,178,56,.14);margin-top:
       <h2>Ready to see what we'd do with <span class="hl v">your project?</span></h2>
       <p>Send us your channel, catalog or book. Within a few days you'll have a free audit and one finished sample in your hands. Then you decide.</p>
       <div class="cta-actions">
-        <a class="btn btn-primary" href="https://t.me/supremehorpsy">Message Us on Telegram</a>
-        <a class="btn btn-ghost" href="https://mail.google.com/mail/?view=cm&fs=1&to=horpsymediagroup@gmail.com&su=Website%20Inquiry" target="_blank" rel="noopener">Email the Team</a>
+        <a class="btn btn-primary btn-pulse" href="mailto:horpsymediagroup@gmail.com?subject=SUPREMEHORPSY%20Inquiry">Email the Team</a>
+        <a class="btn btn-ghost-dark" href="https://t.me/supremehorpsy">Message Us on Telegram</a>
       </div>
+
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <div class="field">
+            <label for="cf-name">Name</label>
+            <input type="text" id="cf-name" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" name="email" autocomplete="email" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="cf-project">Project Type</label>
+          <select id="cf-project" name="project">
+            <option value="Sync Licensing">Sync Licensing</option>
+            <option value="Music Promotion">Music Promotion</option>
+            <option value="Channel Management">Channel Management</option>
+            <option value="Book Marketing">Book Marketing</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
     </div>
   </div>
 </section>
@@ -764,14 +842,43 @@ footer{padding:44px 0 56px;border-top:1px solid rgba(255,178,56,.14);margin-top:
 
 <!-- ================= FOOTER ================= -->
 <footer>
-  <div class="wrap foot">
-    <a class="logo" href="#main"><img src="assets/logo.jpg" alt="SUPREMEHORPSY MEDIA home"></a>
-    <small>© 2026 SUPREMEHORPSY MEDIA. Music promotion, sync licensing and channel management.</small>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="#main"><img src="assets/logo.png" alt="SUPREMEHORPSY home" loading="lazy"></a>
+        <p class="foot-tagline">Create · Grow · Impact</p>
+        <p class="foot-location">Osogbo, Nigeria · Serving clients worldwide</p>
+        <a class="foot-email" href="mailto:horpsymediagroup@gmail.com">horpsymediagroup@gmail.com</a>
+      </div>
+      <div class="foot-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#proof">Proof</a></li>
+          <li><a href="#packages">Packages</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="foot-legal">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <small>© <span id="year"></span> SUPREMEHORPSY. All rights reserved.</small>
+    </div>
   </div>
 </footer>
 
 <script>
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 // Scroll reveal
 const io = new IntersectionObserver(entries=>{
@@ -863,6 +970,22 @@ const updateCaseStack = () => {
   });
 };
 
+// Pinned horizontal-scroll video gallery — vertical scroll drives horizontal
+// translation while the viewport stays sticky (same technique as motion.dev's
+// react-scroll-horizontal example, hand-built without React/framer-motion).
+const videoRailPin = document.getElementById('videoRailPin');
+const videoRailViewport = document.getElementById('videoRailViewport');
+const videoRail = document.getElementById('videoRail');
+const enableVideoRail = window.matchMedia('(min-width: 961px)').matches;
+const updateVideoRail = () => {
+  if (!enableVideoRail || !videoRailPin || !videoRailViewport || !videoRail) return;
+  const rect = videoRailPin.getBoundingClientRect();
+  const runway = rect.height - window.innerHeight;
+  const progress = runway > 0 ? Math.min(Math.max(-rect.top / runway, 0), 1) : 0;
+  const maxTranslate = videoRail.scrollWidth - videoRailViewport.clientWidth;
+  videoRail.style.transform = `translateX(${-progress * Math.max(maxTranslate, 0)}px)`;
+};
+
 const onScroll = () => {
   if (!ticking) {
     window.requestAnimationFrame(() => {
@@ -871,6 +994,7 @@ const onScroll = () => {
       updateTextReveal();
       updateMarquee();
       updateCaseStack();
+      updateVideoRail();
       ticking = false;
     });
     ticking = true;
@@ -882,6 +1006,7 @@ if (!prefersReducedMotion) {
   updateTextReveal();
   updateMarquee();
   updateCaseStack();
+  updateVideoRail();
   updateScrollProgress();
   window.addEventListener('scroll', onScroll, {passive:true});
 }
@@ -954,6 +1079,22 @@ if (portraitEl && !prefersReducedMotion) {
       portraitEl.style.transform = 'translate3d(0,0,0)';
     }
   }, {passive:true});
+}
+
+// Contact form — builds a pre-filled mailto: since there's no form backend wired up yet
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = contactForm.querySelector('#cf-name').value.trim();
+    const email = contactForm.querySelector('#cf-email').value.trim();
+    const project = contactForm.querySelector('#cf-project').value;
+    const message = contactForm.querySelector('#cf-message').value.trim();
+    const subject = `SUPREMEHORPSY Inquiry — ${project}`;
+    const body = `Name: ${name}\nEmail: ${email}\nProject Type: ${project}\n\n${message}`;
+    const mailto = `mailto:horpsymediagroup@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+  });
 }
 </script>
 
