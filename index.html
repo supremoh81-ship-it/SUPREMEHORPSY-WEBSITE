@@ -142,6 +142,17 @@ section::before,.hero::before,.cta-panel::before{
   transform-origin:left;transform:scaleX(0);
   background:linear-gradient(90deg,var(--sky-deep),var(--violet-bright));
 }
+.back-to-top{
+  position:fixed;right:24px;bottom:24px;z-index:150;
+  width:48px;height:48px;border-radius:50%;border:0;cursor:pointer;
+  background:linear-gradient(135deg,var(--violet) 0%,var(--violet-bright) 55%,var(--sky) 100%);
+  color:#fff;font-size:1.3rem;line-height:1;
+  box-shadow:0 8px 22px rgba(217,78,0,0.32);
+  opacity:0;transform:translateY(16px);pointer-events:none;
+  transition:opacity .25s ease,transform .25s ease,box-shadow .2s ease;
+}
+.back-to-top.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.back-to-top:hover{box-shadow:0 12px 28px rgba(217,78,0,0.42)}
 
 /* ---------- nav ---------- */
 nav{
@@ -177,6 +188,14 @@ nav{
   min-height:100vh;display:flex;flex-direction:column;justify-content:center;
   padding:140px 0 64px;text-align:left;position:relative;overflow:hidden;
   background:var(--dark-bg);
+}
+/* Background video loop — decorative only, sits behind the dark overlay and all hero content.
+   No src/<source> is set in markup; JS attaches one only on desktop with motion allowed,
+   so mobile and prefers-reduced-motion visitors never download the mp4 at all. */
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-3;pointer-events:none}
+.hero-video-overlay{
+  position:absolute;inset:0;z-index:-2;pointer-events:none;
+  background:linear-gradient(180deg,rgba(12,12,12,.75),rgba(12,12,12,.9));
 }
 .cursor-glow{
   position:absolute;inset:-10px;z-index:-1;pointer-events:none;opacity:0;
@@ -238,6 +257,19 @@ nav{
 .service-card li{font-size:1rem;color:var(--ink);padding:6px 0 6px 26px;position:relative}
 .service-card li::before{content:"✓";position:absolute;left:0;color:var(--violet);font-weight:700}
 
+/* ---------- protocol ---------- */
+.protocol-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+.protocol-step{padding:28px 20px 0 0}
+.protocol-num{font-family:'Kanit',sans-serif;font-weight:900;font-size:clamp(2.4rem,5vw,3.4rem);color:var(--violet-bright);opacity:.2;line-height:1;margin-bottom:12px}
+.protocol-step h3{font-size:1.05rem;margin-bottom:8px;text-transform:uppercase;letter-spacing:.02em}
+.protocol-step p{color:var(--muted);font-size:.92rem;line-height:1.55}
+/* Sequential stagger reuses the existing .reveal fade/blur — each step just delays its own transition start */
+.protocol-step:nth-child(1){transition-delay:0ms}
+.protocol-step:nth-child(2){transition-delay:120ms}
+.protocol-step:nth-child(3){transition-delay:240ms}
+.protocol-step:nth-child(4){transition-delay:360ms}
+.protocol-step:nth-child(5){transition-delay:480ms}
+
 /* ---------- team ---------- */
 .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
 .member{padding:32px 24px;text-align:left;transition:box-shadow .25s,border-color .25s}
@@ -261,7 +293,7 @@ nav{
   overflow:visible;
 }
 #proof::before{content:none}
-#proof .eyebrow,.hero .eyebrow{color:var(--sky)}
+#proof .eyebrow,.hero .eyebrow,.cta-panel .eyebrow{color:var(--sky)}
 #proof .section-title{color:var(--mist)}
 #proof .section-sub{color:var(--mist-dim)}
 #proof h3{color:var(--mist)}
@@ -313,7 +345,11 @@ nav{
 }
 
 /* ---------- testimonials ---------- */
-.quote-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:900px;margin:0 auto 64px}
+.testimonial-marquee-wrap{overflow:hidden;max-width:900px;margin:0 auto 64px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.testimonial-marquee{display:flex;gap:24px;width:max-content;animation:testimonialScroll 40s linear infinite}
+.testimonial-marquee:hover,.testimonial-marquee:focus-within,.testimonial-marquee.paused{animation-play-state:paused}
+.testimonial-marquee .quote{width:380px;flex:0 0 auto}
+@keyframes testimonialScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .quote{padding:32px 24px;display:flex;flex-direction:column;gap:16px;transition:box-shadow .25s,border-color .25s}
 .quote:hover{box-shadow:0 18px 40px rgba(194,65,12,0.12)}
 .quote blockquote{font-size:1rem;color:var(--ink)}
@@ -330,6 +366,39 @@ nav{
 .video-tile{flex:0 0 auto;height:100%;aspect-ratio:16/9;position:relative;overflow:hidden;border-radius:var(--radius)}
 .video-tile.vertical{aspect-ratio:9/16}
 .video-tile iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* ---------- before/after slider ---------- */
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.ba-frame{
+  position:relative;overflow:hidden;border-radius:var(--radius);aspect-ratio:16/9;
+  --reveal:50%;cursor:ew-resize;touch-action:pan-y;box-shadow:var(--shadow);
+}
+.ba-frame.banner{aspect-ratio:4/1}
+.ba-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.ba-img-after{clip-path:inset(0 calc(100% - var(--reveal)) 0 0)}
+.ba-label{
+  position:absolute;top:14px;font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--mist);background:rgba(12,12,12,.55);
+  padding:5px 12px;border-radius:999px;pointer-events:none;z-index:3;
+}
+.ba-label-before{left:14px}
+.ba-label-after{right:14px}
+.ba-divider{
+  position:absolute;top:0;bottom:0;left:var(--reveal);transform:translateX(-50%);
+  width:3px;background:var(--mist);cursor:ew-resize;z-index:4;touch-action:pan-y;
+}
+.ba-divider:focus-visible{outline:3px solid var(--violet-bright);outline-offset:2px}
+.ba-handle{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:44px;height:44px;border-radius:50%;background:var(--violet-bright);
+  display:flex;align-items:center;justify-content:center;gap:2px;
+  box-shadow:0 6px 18px rgba(0,0,0,.4);border:3px solid var(--mist);
+}
+.ba-handle::before,.ba-handle::after{content:"";width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent}
+.ba-handle::before{border-right:7px solid #fff}
+.ba-handle::after{border-left:7px solid #fff}
+.ba-caption{margin-top:14px;font-size:.92rem;color:var(--muted);text-align:center}
+@media (max-width:768px){.ba-grid{grid-template-columns:1fr}}
 
 /* ---------- packages ---------- */
 .pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
@@ -378,27 +447,43 @@ nav{
 .cta-panel p{color:var(--mist-dim);max-width:560px;margin:0 auto 32px}
 .cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 
-.contact-form{text-align:left;max-width:560px;margin:40px auto 0;display:flex;flex-direction:column;gap:16px}
-.contact-form .form-row{display:flex;gap:16px}
-.contact-form .field{flex:1;display:flex;flex-direction:column;gap:6px}
-.contact-form label{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mist-dim)}
-.contact-form input,.contact-form select,.contact-form textarea{
-  font-family:'Inter',sans-serif;font-size:.95rem;color:var(--mist);
-  background:rgba(255,255,255,.05);border:1px solid rgba(243,236,226,.2);border-radius:10px;
-  padding:12px 14px;transition:border-color .2s,background .2s;
+/* ---------- animated multi-step contact form (Typeform-style: one question at a time) ---------- */
+.contact-form{text-align:left;max-width:560px;margin:40px auto 0;position:relative}
+.af-progress{height:4px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden;margin-bottom:32px}
+.af-progress-bar{height:100%;width:25%;background:linear-gradient(90deg,var(--sky-deep),var(--violet-bright));transition:width .4s var(--ease-lux)}
+.af-step{display:none}
+.af-step.active{display:block}
+.af-step label{display:block;font-family:'Kanit',sans-serif;font-size:1.3rem;font-weight:700;color:var(--mist);margin-bottom:20px}
+.af-step input,.af-step textarea{
+  width:100%;font-family:'Inter',sans-serif;font-size:1.1rem;color:var(--mist);
+  background:transparent;border:none;border-bottom:2px solid rgba(243,236,226,.25);
+  padding:10px 2px;transition:border-color .2s;
 }
-.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{
-  outline:none;border-color:var(--violet-bright);background:rgba(255,255,255,.08);
+.af-step input:focus,.af-step textarea:focus{outline:none;border-color:var(--violet-bright)}
+.af-step textarea{resize:vertical;min-height:100px}
+.af-choices{display:flex;flex-direction:column;gap:12px}
+.af-choice{
+  text-align:left;padding:16px 18px;border-radius:12px;border:1px solid rgba(243,236,226,.2);
+  background:rgba(255,255,255,.04);color:var(--mist);font-family:'Inter',sans-serif;font-size:1rem;
+  cursor:pointer;transition:border-color .2s,background .2s;
 }
-.contact-form textarea{resize:vertical;min-height:100px}
-.contact-form button{align-self:flex-start;margin-top:4px}
-.contact-form .form-note{font-size:.82rem;color:var(--mist-dim);margin-top:-6px}
-@media (max-width:640px){.contact-form .form-row{flex-direction:column}}
+.af-choice:hover{border-color:var(--violet-bright)}
+.af-choice.selected{border-color:var(--violet-bright);background:rgba(255,106,19,.12)}
+.af-choice-desc{margin-top:14px;padding:14px 16px;background:rgba(255,255,255,.04);border-radius:10px;color:var(--mist-dim);font-size:.9rem;line-height:1.55;opacity:0;transition:opacity .25s ease}
+.af-choice-desc.visible{opacity:1}
+.af-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;gap:12px}
+.af-nav .btn:disabled{opacity:.4;cursor:not-allowed;filter:grayscale(.3)}
 
 /* ---------- footer ---------- */
 footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:40px}
 .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;margin-bottom:32px}
 .foot-brand .logo{margin-bottom:14px}
+.status-pill{
+  display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.74rem;
+  color:var(--muted);background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.25);
+  padding:6px 12px;border-radius:999px;margin-bottom:12px;
+}
+.status-dot{width:8px;height:8px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 3px rgba(34,197,94,.2);flex-shrink:0}
 .foot-tagline{font-family:'Kanit',sans-serif;font-weight:600;color:var(--ink);margin-bottom:6px}
 .foot-location{color:var(--muted);font-size:.9rem;margin-bottom:10px}
 .foot-email{color:var(--sky-deep);font-weight:600;text-decoration:none;font-size:.9rem}
@@ -426,7 +511,7 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
 @media (prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none;filter:none;transition:none}
   html{scroll-behavior:auto}
-  .orb,.service-card,.member,.quote,.pkg,.metric,.case-media,.btn,.nav-cta,nav,section::before,.hero::before,.cta-panel::before,.btn-pulse,.pkg.featured::before{animation:none !important;transition:none !important}
+  .orb,.service-card,.member,.quote,.pkg,.metric,.case-media,.btn,.nav-cta,nav,section::before,.hero::before,.cta-panel::before,.btn-pulse,.pkg.featured::before,.back-to-top{animation:none !important;transition:none !important}
   .orb{transform:none !important}
   .cursor-glow{display:none}
   .scroll-progress{display:none}
@@ -438,11 +523,16 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
   .video-rail-pin{height:auto !important}
   .video-rail-viewport{position:static !important;overflow-x:auto !important}
   .video-rail{transform:none !important}
+  /* Static, scrollable row instead of the auto-scrolling marquee; the duplicated
+     loop-track copy is hidden since there's nothing left to seamlessly loop into */
+  .testimonial-marquee-wrap{-webkit-mask-image:none;mask-image:none}
+  .testimonial-marquee{animation:none !important;overflow-x:auto;width:auto}
+  .testimonial-marquee [aria-hidden="true"]{display:none}
 }
 
 /* ---------- responsive ---------- */
 @media (max-width:960px){
-  .services-grid,.quote-grid{grid-template-columns:1fr 1fr}
+  .services-grid{grid-template-columns:1fr 1fr}
   .team-grid,.values-grid{grid-template-columns:1fr 1fr}
   .metric-rail{grid-template-columns:1fr 1fr}
   .hero-grid{grid-template-columns:1fr;text-align:center}
@@ -463,10 +553,15 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
   .video-rail-viewport{position:static !important;overflow-x:auto !important;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding-bottom:8px}
   .video-rail{transform:none !important}
   .video-tile{scroll-snap-align:start}
+  /* Vertical timeline on tablet/mobile instead of 5 cramped columns */
+  .protocol-grid{grid-template-columns:1fr;gap:0}
+  .protocol-step{padding:0 0 28px 24px;border-left:2px solid rgba(255,106,19,.25);margin-left:4px}
+  .protocol-step:last-child{border-left-color:transparent;padding-bottom:0}
 }
 @media (max-width:640px){
   section{padding:70px 0}
-  .services-grid,.quote-grid,.team-grid,.values-grid,.metric-rail{grid-template-columns:1fr}
+  .services-grid,.team-grid,.values-grid,.metric-rail{grid-template-columns:1fr}
+  .testimonial-marquee .quote{width:300px}
   .foot-grid{grid-template-columns:1fr}
   /* ~9.5% smaller floor so the nowrap "promises second." unit has room at narrow widths without overflowing */
   .hero h1{font-size:clamp(1.9rem,4.4vw,3.4rem)}
@@ -486,6 +581,7 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
 <a class="skip-link" href="#main">Skip to main content</a>
 <div class="scroll-progress" id="scrollProgress"></div>
 <div class="orb a"></div><div class="orb b"></div><div class="orb c"></div>
+<button class="back-to-top" id="backToTop" aria-label="Back to top" type="button">↑</button>
 
 <!-- ================= NAV ================= -->
 <nav>
@@ -506,6 +602,8 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
 <main id="main">
 <!-- ================= HERO ================= -->
 <header class="hero">
+  <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="assets/brand-supremoh.jpg" aria-hidden="true"></video>
+  <div class="hero-video-overlay" aria-hidden="true"></div>
   <div class="cursor-glow"></div>
   <div class="wrap">
     <div class="hero-grid">
@@ -525,8 +623,8 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
       </div>
     </div>
     <div class="metric-rail">
-      <div class="metric glass reveal"><div class="num">21.2K</div><div class="lab">Followers on a managed Rumble channel</div></div>
-      <div class="metric glass reveal"><div class="num">4.4K → 11K</div><div class="lab">Instagram growth for one artist client</div></div>
+      <div class="metric glass reveal"><div class="num"><span class="count" data-target="21.2" data-decimals="1">21.2</span><span class="suffix">K</span></div><div class="lab">Followers on a managed Rumble channel</div></div>
+      <div class="metric glass reveal"><div class="num"><span class="count" data-target="4.4" data-decimals="1">4.4</span><span class="suffix">K</span> → <span class="count" data-target="11" data-decimals="0">11</span><span class="suffix">K</span></div><div class="lab">Instagram growth for one artist client</div></div>
       <div class="metric glass reveal"><div class="num">TV Placement</div><div class="lab">Client track placed on a network series</div></div>
     </div>
   </div>
@@ -571,6 +669,42 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
           <li>Livestream setup and support</li>
           <li>Author campaigns and book promotion</li>
         </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROTOCOL ================= -->
+<section id="protocol">
+  <div class="wrap">
+    <span class="eyebrow">The Protocol</span>
+    <h2 class="section-title">How We Work.</h2>
+    <p class="section-sub">Five steps, in order, every time — no shortcuts, no surprises.</p>
+    <div class="protocol-grid">
+      <div class="protocol-step reveal">
+        <div class="protocol-num" aria-hidden="true">01</div>
+        <h3>Free Audit</h3>
+        <p>We study your channel or catalog and identify exactly what's holding it back. No payment, no commitment.</p>
+      </div>
+      <div class="protocol-step reveal">
+        <div class="protocol-num" aria-hidden="true">02</div>
+        <h3>Proof Delivered</h3>
+        <p>You receive a real deliverable — a reworked video, audit report, or sync profile — before we ask for anything.</p>
+      </div>
+      <div class="protocol-step reveal">
+        <div class="protocol-num" aria-hidden="true">03</div>
+        <h3>Agreement</h3>
+        <p>If the proof convinces you, we agree clear terms, scope, and pricing in writing.</p>
+      </div>
+      <div class="protocol-step reveal">
+        <div class="protocol-num" aria-hidden="true">04</div>
+        <h3>Execution</h3>
+        <p>We do the work: optimization, pitching, management, design — with updates as we go.</p>
+      </div>
+      <div class="protocol-step reveal">
+        <div class="protocol-num" aria-hidden="true">05</div>
+        <h3>Reporting</h3>
+        <p>You see the results in plain numbers. We keep what works, fix what doesn't.</p>
       </div>
     </div>
   </div>
@@ -675,15 +809,27 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
     </div>
     </div>
 
-    <!-- Written testimonials -->
-    <div class="quote-grid">
-      <div class="quote glass reveal">
-        <blockquote>Partnering with Supremoh has been one of the most valuable decisions I've made for my music career. I've already received 5 licensing requests. I never expected results of this caliber so quickly. What stands out is the focus on long term artist development rather than short term promotion — every step has felt intentional, professional, and designed to build sustainable growth.</blockquote>
-        <div class="who">Morris Jane <span>Independent Artist · Sync Consulting Client</span></div>
-      </div>
-      <div class="quote glass reveal">
-        <blockquote>The changes were made and all are approved. Thank you for the transparency and the steady updates through the whole campaign.</blockquote>
-        <div class="who">D. L. <span>Independent Author · Book Marketing Client (name withheld on request)</span></div>
+    <!-- Written testimonials — auto-scrolling marquee. The track is duplicated once
+         (aria-hidden on the copy) purely so the CSS loop can reset seamlessly at -50%;
+         no testimonial content is duplicated beyond that technique's requirement. -->
+    <div class="testimonial-marquee-wrap reveal">
+      <div class="testimonial-marquee" id="testimonialMarquee">
+        <div class="quote glass">
+          <blockquote>Partnering with Supremoh has been one of the most valuable decisions I've made for my music career. I've already received 5 licensing requests. I never expected results of this caliber so quickly. What stands out is the focus on long term artist development rather than short term promotion — every step has felt intentional, professional, and designed to build sustainable growth.</blockquote>
+          <div class="who">Morris Jane <span>Independent Artist · Sync Consulting Client</span></div>
+        </div>
+        <div class="quote glass">
+          <blockquote>The changes were made and all are approved. Thank you for the transparency and the steady updates through the whole campaign.</blockquote>
+          <div class="who">D. L. <span>Independent Author · Book Marketing Client (name withheld on request)</span></div>
+        </div>
+        <div class="quote glass" aria-hidden="true">
+          <blockquote>Partnering with Supremoh has been one of the most valuable decisions I've made for my music career. I've already received 5 licensing requests. I never expected results of this caliber so quickly. What stands out is the focus on long term artist development rather than short term promotion — every step has felt intentional, professional, and designed to build sustainable growth.</blockquote>
+          <div class="who">Morris Jane <span>Independent Artist · Sync Consulting Client</span></div>
+        </div>
+        <div class="quote glass" aria-hidden="true">
+          <blockquote>The changes were made and all are approved. Thank you for the transparency and the steady updates through the whole campaign.</blockquote>
+          <div class="who">D. L. <span>Independent Author · Book Marketing Client (name withheld on request)</span></div>
+        </div>
       </div>
     </div>
 
@@ -721,6 +867,45 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
               allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BEFORE & AFTER ================= -->
+<section id="before-after">
+  <div class="wrap">
+    <span class="eyebrow">Proof In Panels</span>
+    <h2 class="section-title">Before &amp; After</h2>
+    <p class="section-sub">Drag the divider. This is the same rework standard we bring to every client asset.</p>
+    <div class="ba-grid">
+      <div class="ba-slider reveal">
+        <div class="ba-frame">
+          <!-- Placeholder images — real thumbnail-redesign pair to be dropped in later -->
+          <img class="ba-img-before" src="assets/ba-thumbnail-before.jpg" alt="Channel thumbnail before redesign" loading="lazy">
+          <img class="ba-img-after" src="assets/ba-thumbnail-after.jpg" alt="Channel thumbnail after redesign" loading="lazy">
+          <div class="ba-label ba-label-before" aria-hidden="true">Before</div>
+          <div class="ba-label ba-label-after" aria-hidden="true">After</div>
+          <div class="ba-divider" role="slider" tabindex="0" aria-orientation="horizontal"
+            aria-label="Drag to compare thumbnail before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <div class="ba-handle"></div>
+          </div>
+        </div>
+        <p class="ba-caption">Thumbnail Redesign — drag to reveal</p>
+      </div>
+      <div class="ba-slider reveal">
+        <div class="ba-frame banner">
+          <!-- Placeholder images — real banner-rework pair to be dropped in later -->
+          <img class="ba-img-before" src="assets/ba-banner-before.jpg" alt="Channel banner before rework" loading="lazy">
+          <img class="ba-img-after" src="assets/ba-banner-after.jpg" alt="Channel banner after rework" loading="lazy">
+          <div class="ba-label ba-label-before" aria-hidden="true">Before</div>
+          <div class="ba-label ba-label-after" aria-hidden="true">After</div>
+          <div class="ba-divider" role="slider" tabindex="0" aria-orientation="horizontal"
+            aria-label="Drag to compare banner before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <div class="ba-handle"></div>
+          </div>
+        </div>
+        <p class="ba-caption">Channel Banner Rework — drag to reveal</p>
       </div>
     </div>
   </div>
@@ -802,6 +987,7 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
 <section id="contact">
   <div class="wrap">
     <div class="cta-panel glass reveal">
+      <span class="eyebrow">Start Here</span>
       <h2>Ready to see what we'd do with <span class="hl v">your project?</span></h2>
       <p>Send us your channel, catalog or book. Within a few days you'll have a free audit and one finished sample in your hands. Then you decide.</p>
       <div class="cta-actions">
@@ -809,31 +995,48 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
         <a class="btn btn-ghost-dark" href="https://t.me/supremehorpsy">Message Us on Telegram</a>
       </div>
 
-      <form class="contact-form" id="contactForm">
-        <div class="form-row">
-          <div class="field">
-            <label for="cf-name">Name</label>
-            <input type="text" id="cf-name" name="name" autocomplete="name" required>
-          </div>
-          <div class="field">
-            <label for="cf-email">Email</label>
-            <input type="email" id="cf-email" name="email" autocomplete="email" required>
+      <form class="contact-form af-form" id="contactForm" novalidate>
+        <div class="af-progress"><div class="af-progress-bar" id="afProgressBar"></div></div>
+
+        <div class="af-step" data-step="0">
+          <label for="cf-name">What's your name?</label>
+          <input type="text" id="cf-name" name="name" autocomplete="name" required>
+          <div class="af-nav"><span></span><button type="button" class="btn btn-primary af-next">Continue →</button></div>
+        </div>
+
+        <div class="af-step" data-step="1">
+          <label for="cf-email">What's your email?</label>
+          <input type="email" id="cf-email" name="email" autocomplete="email" required>
+          <div class="af-nav">
+            <button type="button" class="btn btn-ghost-dark af-back">← Back</button>
+            <button type="button" class="btn btn-primary af-next">Continue →</button>
           </div>
         </div>
-        <div class="field">
-          <label for="cf-project">Project Type</label>
-          <select id="cf-project" name="project">
-            <option value="Sync Licensing">Sync Licensing</option>
-            <option value="Music Promotion">Music Promotion</option>
-            <option value="Channel Management">Channel Management</option>
-            <option value="Book Marketing">Book Marketing</option>
-          </select>
+
+        <div class="af-step" data-step="2">
+          <label id="af-project-label">What kind of project is this?</label>
+          <div class="af-choices" role="group" aria-labelledby="af-project-label">
+            <button type="button" class="af-choice" data-value="Sync Licensing">Sync Licensing</button>
+            <button type="button" class="af-choice" data-value="Music Promotion">Music Promotion</button>
+            <button type="button" class="af-choice" data-value="Channel Management">Channel Management</button>
+            <button type="button" class="af-choice" data-value="Book Marketing">Book Marketing</button>
+          </div>
+          <p class="af-choice-desc" id="afChoiceDesc" aria-live="polite"></p>
+          <input type="hidden" id="cf-project" name="project" required>
+          <div class="af-nav">
+            <button type="button" class="btn btn-ghost-dark af-back">← Back</button>
+            <button type="button" class="btn btn-primary af-next" id="afProjectNext" disabled>Continue →</button>
+          </div>
         </div>
-        <div class="field">
-          <label for="cf-message">Message</label>
+
+        <div class="af-step" data-step="3">
+          <label for="cf-message">Tell us about your project</label>
           <textarea id="cf-message" name="message" rows="4" required></textarea>
+          <div class="af-nav">
+            <button type="button" class="btn btn-ghost-dark af-back">← Back</button>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </div>
         </div>
-        <button type="submit" class="btn btn-primary">Send Message</button>
       </form>
     </div>
   </div>
@@ -846,6 +1049,7 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
     <div class="foot-grid">
       <div class="foot-brand">
         <a class="logo" href="#main"><img src="assets/logo.png" alt="SUPREMEHORPSY home" loading="lazy"></a>
+        <div class="status-pill"><span class="status-dot" aria-hidden="true"></span>Currently accepting new clients</div>
         <p class="foot-tagline">Create · Grow · Impact</p>
         <p class="foot-location">Osogbo, Nigeria · Serving clients worldwide</p>
         <a class="foot-email" href="mailto:horpsymediagroup@gmail.com">horpsymediagroup@gmail.com</a>
@@ -877,8 +1081,57 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
 <script>
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+// Animated count-up stats — markup holds the real final value so it's correct if JS
+// never runs; this resets to 0 synchronously (before first paint) so there's no flash,
+// then counts back up once the stat scrolls into view.
+const countEls = Array.from(document.querySelectorAll('.count[data-target]'));
+countEls.forEach(el => { el.dataset.final = el.textContent; el.textContent = '0'; });
+if (countEls.length) {
+  if (prefersReducedMotion) {
+    countEls.forEach(el => { el.textContent = el.dataset.final; });
+  } else {
+    const animateCount = (el) => {
+      const target = parseFloat(el.dataset.target);
+      const decimals = parseInt(el.dataset.decimals || '0', 10);
+      const duration = 1500;
+      const start = performance.now();
+      const step = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = (target * eased).toFixed(decimals);
+        if (progress < 1) requestAnimationFrame(step);
+        else el.textContent = el.dataset.final;
+      };
+      requestAnimationFrame(step);
+    };
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          countObserver.unobserve(entry.target);
+        }
+      });
+    }, {threshold: 0.3});
+    countEls.forEach(el => countObserver.observe(el));
+  }
+}
+
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+// Hero background video — only fetched on desktop with motion allowed.
+// No <source> is ever added on mobile or under prefers-reduced-motion, so the
+// mp4 is never requested there; the <video>'s poster attribute covers that case.
+const heroVideo = document.getElementById('heroVideo');
+const heroVideoAllowed = window.matchMedia('(min-width: 769px)').matches && !prefersReducedMotion;
+if (heroVideo && heroVideoAllowed) {
+  const source = document.createElement('source');
+  source.src = 'assets/hero-loop.mp4';
+  source.type = 'video/mp4';
+  heroVideo.appendChild(source);
+  heroVideo.load();
+  heroVideo.play().catch(() => {});
+}
 
 // Scroll reveal
 const io = new IntersectionObserver(entries=>{
@@ -1001,6 +1254,22 @@ const onScroll = () => {
   }
 };
 
+// Back to top button — visibility works regardless of reduced-motion (it's
+// navigation, not decoration); only the show/hide transition is disabled there.
+const backToTop = document.getElementById('backToTop');
+if (backToTop) {
+  const heroSection = document.querySelector('.hero');
+  const updateBackToTop = () => {
+    const heroBottom = heroSection ? heroSection.offsetTop + heroSection.offsetHeight : window.innerHeight;
+    backToTop.classList.toggle('visible', window.scrollY > heroBottom - 100);
+  };
+  window.addEventListener('scroll', updateBackToTop, {passive:true});
+  updateBackToTop();
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth'});
+  });
+}
+
 if (!prefersReducedMotion) {
   updateParallax();
   updateTextReveal();
@@ -1013,6 +1282,49 @@ if (!prefersReducedMotion) {
 
 // Close mobile menu on link tap
 document.querySelectorAll('#navlinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open')));
+
+// Testimonial marquee — pause on touch (hover already pauses via CSS :hover)
+const testimonialMarquee = document.getElementById('testimonialMarquee');
+if (testimonialMarquee) {
+  testimonialMarquee.addEventListener('touchstart', () => testimonialMarquee.classList.add('paused'), {passive:true});
+  testimonialMarquee.addEventListener('touchend', () => testimonialMarquee.classList.remove('paused'), {passive:true});
+  testimonialMarquee.addEventListener('touchcancel', () => testimonialMarquee.classList.remove('paused'), {passive:true});
+}
+
+// Before/After drag slider — Pointer Events unify mouse + touch in one code path,
+// plus left/right arrow keys when the handle is focused. Vanilla JS, no libraries.
+document.querySelectorAll('.ba-frame').forEach((frame) => {
+  const divider = frame.querySelector('.ba-divider');
+  if (!divider) return;
+
+  const setReveal = (percent) => {
+    const clamped = Math.min(Math.max(percent, 0), 100);
+    frame.style.setProperty('--reveal', `${clamped}%`);
+    divider.setAttribute('aria-valuenow', String(Math.round(clamped)));
+  };
+  const percentFromClientX = (clientX) => {
+    const rect = frame.getBoundingClientRect();
+    return ((clientX - rect.left) / rect.width) * 100;
+  };
+
+  let dragging = false;
+  frame.addEventListener('pointerdown', (e) => {
+    dragging = true;
+    frame.setPointerCapture(e.pointerId);
+    setReveal(percentFromClientX(e.clientX));
+  });
+  frame.addEventListener('pointermove', (e) => { if (dragging) setReveal(percentFromClientX(e.clientX)); });
+  frame.addEventListener('pointerup', () => { dragging = false; });
+  frame.addEventListener('pointercancel', () => { dragging = false; });
+
+  divider.addEventListener('keydown', (e) => {
+    const current = parseFloat(frame.style.getPropertyValue('--reveal')) || 50;
+    if (e.key === 'ArrowLeft') { setReveal(current - 5); e.preventDefault(); }
+    else if (e.key === 'ArrowRight') { setReveal(current + 5); e.preventDefault(); }
+    else if (e.key === 'Home') { setReveal(0); e.preventDefault(); }
+    else if (e.key === 'End') { setReveal(100); e.preventDefault(); }
+  });
+});
 
 // Cursor glow — eased mouse-follow highlight in the hero
 const heroEl = document.querySelector('.hero');
@@ -1082,6 +1394,90 @@ if (portraitEl && !prefersReducedMotion) {
 }
 
 // Contact form — builds a pre-filled mailto: since there's no form backend wired up yet
+// Animated multi-step contact form — one question per screen, slide+fade between
+// steps (direction-aware), reusing the site's --ease-lux curve. Vanilla JS, no library.
+const projectDescriptions = {
+  'Sync Licensing': 'Catalog audit · Sync-ready profiles · Commission-based pitching. We prepare your music to be found and licensed.',
+  'Music Promotion': 'Positioning, campaigns and audience growth built on real data — not bought numbers.',
+  'Channel Management': 'Free Tier 1 audit + one reworked video first. Ongoing optimization, SEO and metadata health from Tier 2.',
+  'Book Marketing': 'Author platform setup, launch assets and promotion that treats your book like a product.'
+};
+
+const afForm = document.getElementById('contactForm');
+if (afForm) {
+  const steps = Array.from(afForm.querySelectorAll('.af-step'));
+  const progressBar = document.getElementById('afProgressBar');
+  let currentIndex = 0;
+
+  const showStep = (nextIndex) => {
+    const forward = nextIndex > currentIndex;
+    const current = steps[currentIndex];
+    const next = steps[nextIndex];
+    const slideDuration = prefersReducedMotion ? 0 : 300;
+
+    if (prefersReducedMotion) {
+      current.classList.remove('active');
+      next.classList.add('active');
+    } else {
+      current.style.transition = 'opacity .3s ease, transform .3s ease';
+      current.style.opacity = '0';
+      current.style.transform = `translateX(${forward ? -20 : 20}px)`;
+    }
+
+    window.setTimeout(() => {
+      current.classList.remove('active');
+      current.style.transition = '';
+      current.style.opacity = '';
+      current.style.transform = '';
+      next.classList.add('active');
+      if (!prefersReducedMotion) {
+        next.style.transition = 'none';
+        next.style.opacity = '0';
+        next.style.transform = `translateX(${forward ? 20 : -20}px)`;
+        void next.offsetWidth;
+        next.style.transition = 'opacity .35s var(--ease-lux), transform .35s var(--ease-lux)';
+        next.style.opacity = '1';
+        next.style.transform = 'translateX(0)';
+      }
+      const focusable = next.querySelector('input, textarea');
+      if (focusable) focusable.focus({preventScroll: true});
+    }, slideDuration);
+
+    currentIndex = nextIndex;
+    if (progressBar) progressBar.style.width = `${((nextIndex + 1) / steps.length) * 100}%`;
+  };
+
+  afForm.querySelectorAll('.af-next').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const field = steps[currentIndex].querySelector('input:not([type="hidden"]), textarea');
+      if (field && !field.checkValidity()) { field.reportValidity(); return; }
+      if (currentIndex < steps.length - 1) showStep(currentIndex + 1);
+    });
+  });
+  afForm.querySelectorAll('.af-back').forEach((btn) => {
+    btn.addEventListener('click', () => { if (currentIndex > 0) showStep(currentIndex - 1); });
+  });
+
+  const projectInput = document.getElementById('cf-project');
+  const projectNext = document.getElementById('afProjectNext');
+  const choiceDesc = document.getElementById('afChoiceDesc');
+  afForm.querySelectorAll('.af-choice').forEach((choice) => {
+    choice.addEventListener('click', () => {
+      afForm.querySelectorAll('.af-choice').forEach((c) => c.classList.remove('selected'));
+      choice.classList.add('selected');
+      if (projectInput) projectInput.value = choice.dataset.value;
+      if (projectNext) projectNext.disabled = false;
+      if (choiceDesc) {
+        choiceDesc.textContent = projectDescriptions[choice.dataset.value] || '';
+        choiceDesc.classList.add('visible');
+      }
+    });
+  });
+
+  steps[0].classList.add('active');
+  if (progressBar) progressBar.style.width = `${(1 / steps.length) * 100}%`;
+}
+
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
