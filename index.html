@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SUPREMEHORPSY | Music Promotion, Sync Licensing and Channel Management</title>
-<meta name="description" content="SUPREMEHORPSY grows artists, authors and creators with proof first: sync licensing, music promotion, Rumble channel and book marketing.">
+<title>SUPREMEHORPSY — Rumble &amp; YouTube Channel Management and Growth</title>
+<meta name="description" content="SUPREMEHORPSY manages and grows Rumble and YouTube channels with proof first: free audits, SEO, thumbnails and reporting — plus sync licensing, music promotion and book marketing.">
 <link rel="canonical" href="https://supremehorpsy-website.vercel.app/">
 <meta name="theme-color" content="#0C0C0C">
 <link rel="icon" type="image/png" href="assets/logo.png">
@@ -12,13 +12,13 @@
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SUPREMEHORPSY">
-<meta property="og:title" content="SUPREMEHORPSY | Music Promotion, Sync Licensing and Channel Management">
-<meta property="og:description" content="We grow artists and creators with proof first, promises second. Sync licensing readiness, music promotion, Rumble channel management and book marketing.">
+<meta property="og:title" content="SUPREMEHORPSY — Rumble &amp; YouTube Channel Management and Growth">
+<meta property="og:description" content="We grow channels on Rumble &amp; YouTube with proof first, promises second. Channel audits, SEO, thumbnails and growth reporting — plus sync licensing, music promotion and book marketing.">
 <meta property="og:image" content="https://supremehorpsy-website.vercel.app/assets/brand-supremoh.jpg">
 <meta property="og:url" content="https://supremehorpsy-website.vercel.app/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SUPREMEHORPSY | Music Promotion, Sync Licensing and Channel Management">
-<meta name="twitter:description" content="We grow artists and creators with proof first, promises second. Sync licensing readiness, music promotion, Rumble channel management and book marketing.">
+<meta name="twitter:title" content="SUPREMEHORPSY — Rumble &amp; YouTube Channel Management and Growth">
+<meta name="twitter:description" content="We grow channels on Rumble &amp; YouTube with proof first, promises second. Channel audits, SEO, thumbnails and growth reporting — plus sync licensing, music promotion and book marketing.">
 <meta name="twitter:image" content="https://supremehorpsy-website.vercel.app/assets/brand-supremoh.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,6 +30,7 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "SUPREMEHORPSY",
+  "description": "Rumble and YouTube channel management and growth, plus sync licensing, music promotion and book marketing — proof first, promises second.",
   "url": "https://supremehorpsy-website.vercel.app",
   "logo": "https://supremehorpsy-website.vercel.app/assets/logo.png",
   "founder": { "@type": "Person", "name": "Supremoh" },
@@ -136,6 +137,46 @@ section::before,.hero::before,.cta-panel::before{
   backface-visibility:hidden;
 }
 
+/* ---------- premium "metal" card system ----------
+   Dark brushed-metal cards that pop against light section backgrounds,
+   with icon micro-interactions, ghost accents and hover glow. */
+.metal-card{
+  position:relative;overflow:hidden;border-radius:var(--radius);
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.06) 0%,transparent 40%),
+    repeating-linear-gradient(115deg,rgba(255,255,255,.025) 0 2px,transparent 2px 5px),
+    linear-gradient(160deg,#1c1a17,#0c0c0c);
+  border:1px solid rgba(243,236,226,.08);
+  padding:28px 24px;
+  transition:border-color .3s ease,box-shadow .3s ease;
+}
+.metal-card:hover{border-color:rgba(255,106,19,.4);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.metal-card .hover-glow{
+  pointer-events:none;position:absolute;inset:0;opacity:0;transition:opacity .5s ease;
+  background:radial-gradient(circle at 20% 15%,rgba(255,106,19,.16),transparent 60%);
+}
+.metal-card:hover .hover-glow{opacity:1}
+.metal-card .icon-badge{
+  position:relative;width:48px;height:48px;border-radius:14px;display:grid;place-items:center;
+  border:1px solid rgba(243,236,226,.12);background:#171512;color:var(--violet-bright);
+  font-size:1.3rem;transition:transform .4s var(--ease-lux),border-color .3s,color .3s;
+}
+.metal-card:hover .icon-badge{transform:translateY(-3px) rotate(6deg);border-color:rgba(255,106,19,.45);color:var(--sky)}
+.metal-card .eyebrow-tag{
+  position:relative;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--mist-dim);opacity:.65;
+}
+.metal-card h3{position:relative;color:var(--mist)}
+.metal-card p{position:relative;color:var(--mist-dim)}
+.metal-card .card-underline{
+  position:relative;display:block;margin-top:20px;height:1px;width:100%;
+  background:linear-gradient(90deg,rgba(255,106,19,.45),transparent);
+}
+@media (prefers-reduced-motion:reduce){
+  .metal-card,.metal-card .icon-badge,.metal-card .hover-glow{transition:none !important}
+  .metal-card:hover .icon-badge{transform:none}
+}
+
 /* ---------- scroll progress ---------- */
 .scroll-progress{
   position:fixed;inset:0 0 auto 0;height:3px;z-index:200;
@@ -186,7 +227,7 @@ nav{
    adapted to fit a full descriptive headline + CTAs + metrics instead of two words. */
 .hero{
   min-height:100vh;display:flex;flex-direction:column;justify-content:center;
-  padding:140px 0 64px;text-align:left;position:relative;overflow:hidden;
+  padding:48px 0 40px;text-align:left;position:relative;overflow:hidden;
   background:var(--dark-bg);
 }
 /* Background video loop — decorative only, sits behind the dark overlay and all hero content.
@@ -208,14 +249,14 @@ nav{
   background:radial-gradient(420px circle at var(--x,50%) var(--y,40%),rgba(255,106,19,.28),rgba(255,178,56,.14) 45%,transparent 72%);
 }
 .cursor-glow.active{opacity:1}
-.hero-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:center;margin-bottom:56px}
-.hero-copy{max-width:720px}
+.hero-grid{display:grid;grid-template-columns:1.7fr 1fr;gap:48px;align-items:center;margin-bottom:56px}
+.hero-copy{max-width:860px}
 .hero-heading{
   font-family:'Kanit',sans-serif;font-weight:900;text-transform:uppercase;letter-spacing:-0.01em;line-height:1.15;
   background:linear-gradient(180deg,var(--mist) 0%,var(--sky) 100%);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
 }
-.hero h1{font-size:clamp(2.1rem,4.4vw,3.4rem);margin-bottom:24px}
+.hero h1{font-size:clamp(2.1rem,calc(1.14rem + 0.1vw),2.3rem);margin-bottom:24px}
 .hero p.lede{font-size:1.1rem;color:var(--mist-dim);max-width:560px;margin-bottom:36px}
 .hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
 .hero-portrait{display:flex;justify-content:center}
@@ -249,8 +290,8 @@ nav{
 .metric .lab{font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mist-dim);margin-top:6px}
 
 /* ---------- services ---------- */
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.service-card{padding:32px 24px;display:flex;flex-direction:column;gap:14px;transition:box-shadow .25s,border-color .25s}
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.service-card{position:relative;padding:32px 24px;display:flex;flex-direction:column;gap:14px;transition:box-shadow .25s,border-color .25s}
 .service-card:hover{box-shadow:0 18px 40px rgba(194,65,12,0.12)}
 .service-icon{
   width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:1.4rem;
@@ -263,27 +304,41 @@ nav{
 .service-card li::before{content:"✓";position:absolute;left:0;color:var(--violet);font-weight:700}
 
 /* ---------- protocol ---------- */
-.protocol-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
-.protocol-step{padding:28px 20px 0 0}
-.protocol-num{font-family:'Kanit',sans-serif;font-weight:900;font-size:clamp(2.4rem,5vw,3.4rem);color:var(--violet-bright);opacity:.2;line-height:1;margin-bottom:12px}
+/* Flex (not grid) so the glowing connector dots can sit as normal siblings between cards. */
+.protocol-grid{display:flex;align-items:stretch;gap:0}
+.protocol-step{flex:1 1 0;min-width:0}
+.protocol-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px}
+.protocol-num{font-family:'Kanit',sans-serif;font-weight:900;font-size:2.75rem;color:var(--mist);opacity:.1;line-height:1;transition:color .3s ease,opacity .3s ease}
+.protocol-step:hover .protocol-num{color:var(--violet-bright);opacity:.3}
 .protocol-step h3{font-size:1.05rem;margin-bottom:8px;text-transform:uppercase;letter-spacing:.02em}
-.protocol-step p{color:var(--muted);font-size:.92rem;line-height:1.55}
+.protocol-step p{font-size:.92rem;line-height:1.55}
+.protocol-dot{
+  flex:0 0 20px;position:relative;align-self:center;
+}
+.protocol-dot::before{
+  content:"";display:block;width:10px;height:10px;margin:0 auto;border-radius:50%;
+  background:var(--violet-bright);box-shadow:0 0 12px 2px rgba(255,106,19,.55);
+}
 /* Sequential stagger reuses the existing .reveal fade/blur — each step just delays its own transition start */
-.protocol-step:nth-child(1){transition-delay:0ms}
-.protocol-step:nth-child(2){transition-delay:120ms}
-.protocol-step:nth-child(3){transition-delay:240ms}
-.protocol-step:nth-child(4){transition-delay:360ms}
-.protocol-step:nth-child(5){transition-delay:480ms}
+.protocol-step:nth-of-type(1){transition-delay:0ms}
+.protocol-step:nth-of-type(2){transition-delay:120ms}
+.protocol-step:nth-of-type(3){transition-delay:240ms}
+.protocol-step:nth-of-type(4){transition-delay:360ms}
+.protocol-step:nth-of-type(5){transition-delay:480ms}
 
 /* ---------- team ---------- */
 .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.member{padding:32px 24px;text-align:left;transition:box-shadow .25s,border-color .25s}
-.member:hover{box-shadow:0 18px 40px rgba(194,65,12,0.12)}
-.avatar{width:96px;height:96px;border-radius:50%;overflow:hidden;margin-bottom:16px;border:3px solid rgba(255,106,19,0.4);box-shadow:0 8px 20px rgba(194,65,12,0.18)}
+.member{text-align:left}
+.avatar{
+  position:relative;width:96px;height:96px;border-radius:50%;overflow:hidden;margin-bottom:16px;
+  border:3px solid rgba(255,106,19,.4);box-shadow:0 8px 20px rgba(0,0,0,.3);
+  transition:transform .4s var(--ease-lux);
+}
+.member:hover .avatar{transform:translateY(-3px)}
 .avatar img{width:100%;height:100%;object-fit:cover;display:block}
-.member h3{font-size:1.08rem;margin-bottom:2px}
-.member .role{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--sky-deep);margin-bottom:12px}
-.member p{font-size:1rem;color:var(--muted)}
+.member h3{font-size:1.08rem;margin-bottom:2px;margin-top:0}
+.member .role{position:relative;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--sky);margin-bottom:12px}
+.member p{font-size:1rem}
 
 /* ---------- proof / case studies ---------- */
 /* This section deliberately breaks from the site's light theme — a dark "stage"
@@ -367,8 +422,12 @@ nav{
    scroll-horizontal example, hand-built without React/framer-motion. */
 .video-rail-pin{position:relative;height:150vh;margin-bottom:8px}
 .video-rail-viewport{position:sticky;top:calc(5.5rem);height:260px;overflow:hidden}
-.video-rail{display:flex;gap:24px;height:100%;will-change:transform}
-.video-tile{flex:0 0 auto;height:100%;aspect-ratio:16/9;position:relative;overflow:hidden;border-radius:var(--radius)}
+.video-rail{display:flex;align-items:center;gap:24px;height:100%;will-change:transform}
+.video-tile{
+  flex:0 0 auto;height:100%;aspect-ratio:16/9;position:relative;overflow:hidden;border-radius:var(--radius);
+  border:1px solid rgba(243,236,226,.1);transition:border-color .3s ease,box-shadow .3s ease;
+}
+.video-tile:hover{border-color:rgba(255,106,19,.45);box-shadow:0 18px 40px rgba(0,0,0,.4)}
 .video-tile.vertical{aspect-ratio:9/16}
 .video-tile iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
@@ -405,21 +464,78 @@ nav{
 .ba-caption{margin-top:14px;font-size:.92rem;color:var(--muted);text-align:center}
 @media (max-width:768px){.ba-grid{grid-template-columns:1fr}}
 
+/* ---------- thumbnail portfolio ---------- */
+.thumb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.thumb-tile{
+  position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;
+  border:1px solid rgba(255,178,56,.18);cursor:pointer;padding:0;background:var(--glass);
+  transition:border-color .3s ease;
+}
+.thumb-tile:hover{border-color:rgba(255,106,19,.45)}
+.thumb-tile:focus-visible{outline:3px solid var(--violet-bright);outline-offset:2px}
+.thumb-tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s var(--ease-lux)}
+.thumb-tile:hover img{transform:scale(1.03)}
+.thumb-tile[hidden]{display:none}
+.thumb-more-wrap{text-align:center;margin-top:32px}
+@media (max-width:960px){.thumb-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.thumb-grid{grid-template-columns:1fr}}
+
+/* ---------- video editing portfolio ---------- */
+.edit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.edit-card{display:flex;flex-direction:column;gap:10px}
+.edit-play{
+  position:relative;display:block;width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;
+  border:1px solid rgba(255,178,56,.18);cursor:pointer;padding:0;background:var(--dark-bg);
+  transition:border-color .3s ease;
+}
+.edit-play:hover{border-color:rgba(255,106,19,.45)}
+.edit-play:focus-visible{outline:3px solid var(--violet-bright);outline-offset:2px}
+.edit-play img{width:100%;height:100%;object-fit:cover;display:block}
+.edit-play-icon{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:56px;height:56px;border-radius:50%;
+  background:linear-gradient(135deg,var(--violet) 0%,var(--violet-bright) 55%,var(--sky) 100%);
+  color:#fff;display:grid;place-items:center;font-size:1.1rem;
+  box-shadow:0 8px 22px rgba(217,78,0,.4);
+}
+.edit-play-icon::before{content:"";border-style:solid;border-width:9px 0 9px 15px;border-color:transparent transparent transparent #fff;margin-left:3px}
+.edit-iframe{width:100%;aspect-ratio:16/9;border-radius:14px;border:0;display:block}
+.edit-caption{font-size:.9rem;color:var(--muted)}
+@media (max-width:960px){.edit-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.edit-grid{grid-template-columns:1fr}}
+
+/* ---------- lightbox ---------- */
+.lightbox{
+  position:fixed;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;
+  background:rgba(12,12,12,.94);padding:24px;
+}
+.lightbox[hidden]{display:none}
+.lightbox-img{max-width:min(90vw,1100px);max-height:85vh;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lightbox-close{
+  position:absolute;top:20px;right:24px;background:none;border:0;color:var(--mist);
+  font-size:2rem;cursor:pointer;line-height:1;padding:8px;
+}
+.lightbox-close:focus-visible,.lightbox-arrow:focus-visible{outline:3px solid var(--violet-bright);outline-offset:2px}
+.lightbox-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.16);color:var(--mist);width:48px;height:48px;border-radius:50%;
+  font-size:1.6rem;cursor:pointer;display:grid;place-items:center;transition:background .2s;
+}
+.lightbox-arrow:hover{background:rgba(255,255,255,.16)}
+.lightbox-prev{left:20px}
+.lightbox-next{right:20px}
+@media (max-width:640px){
+  .lightbox-arrow{width:40px;height:40px;font-size:1.3rem}
+  .lightbox-prev{left:8px}
+  .lightbox-next{right:8px}
+}
+
 /* ---------- packages ---------- */
 .pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
 .pkg{padding:32px 24px;display:flex;flex-direction:column;gap:16px;position:relative;transition:box-shadow .25s,border-color .25s}
 .pkg:hover{box-shadow:0 18px 40px rgba(194,65,12,0.12)}
-.pkg.featured{border:2px solid var(--violet-bright);box-shadow:0 24px 60px rgba(217,78,0,.18);isolation:isolate}
-/* Border beam — a rotating arc of light traces the featured card's edge (motion.dev pricing-sections pattern, CSS-only) */
-.pkg.featured::before{
-  content:"";position:absolute;inset:-2px;border-radius:inherit;padding:2px;
-  background:conic-gradient(from 0deg,transparent 0deg,transparent 260deg,var(--sky) 300deg,var(--violet-bright) 330deg,transparent 360deg);
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;
-  animation:beamSpin 3.2s linear infinite;z-index:-1;pointer-events:none;
-}
-@keyframes beamSpin{to{transform:rotate(360deg)}}
-.pkg .flag{
+.pkg.featured,.service-card.featured{border:2px solid var(--violet-bright);box-shadow:0 24px 60px rgba(217,78,0,.18)}
+.pkg .flag,.service-card .flag{
   position:absolute;top:-14px;left:50%;transform:translateX(-50%);
   background:linear-gradient(120deg,var(--sky-deep),var(--violet));color:#fff;
   font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
@@ -435,10 +551,8 @@ nav{
 
 /* ---------- values ---------- */
 .values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.value{padding:32px 24px}
-.value h3{font-size:1rem;margin-bottom:8px;display:flex;align-items:center;gap:10px}
-.value h3 em{font-style:normal;font-size:1.3rem}
-.value p{font-size:.95rem;color:var(--muted)}
+.value h3{font-size:1rem}
+.value p{font-size:.95rem}
 
 /* ---------- CTA ---------- */
 #contact{background:var(--dark-bg)}
@@ -516,7 +630,7 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
 @media (prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none;filter:none;transition:none}
   html{scroll-behavior:auto}
-  .orb,.service-card,.member,.quote,.pkg,.metric,.case-media,.btn,.nav-cta,nav,section::before,.hero::before,.cta-panel::before,.btn-pulse,.pkg.featured::before,.back-to-top{animation:none !important;transition:none !important}
+  .orb,.service-card,.member,.avatar,.quote,.pkg,.metric,.case-media,.btn,.nav-cta,nav,section::before,.hero::before,.cta-panel::before,.btn-pulse,.back-to-top,.thumb-tile img{animation:none !important;transition:none !important}
   .orb{transform:none !important}
   .cursor-glow{display:none}
   .scroll-progress{display:none}
@@ -558,18 +672,18 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
   .video-rail-viewport{position:static !important;overflow-x:auto !important;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding-bottom:8px}
   .video-rail{transform:none !important}
   .video-tile{scroll-snap-align:start}
-  /* Vertical timeline on tablet/mobile instead of 5 cramped columns */
-  .protocol-grid{grid-template-columns:1fr;gap:0}
-  .protocol-step{padding:0 0 28px 24px;border-left:2px solid rgba(255,106,19,.25);margin-left:4px}
-  .protocol-step:last-child{border-left-color:transparent;padding-bottom:0}
+  /* Stacked cards on tablet/mobile instead of 5 cramped columns; connector dots are a horizontal-only accent */
+  .protocol-grid{flex-direction:column;gap:16px}
+  .protocol-dot{display:none}
 }
 @media (max-width:640px){
   section{padding:70px 0}
   .services-grid,.team-grid,.values-grid,.metric-rail{grid-template-columns:1fr}
   .testimonial-marquee .quote{width:300px}
   .foot-grid{grid-template-columns:1fr}
-  /* ~9.5% smaller floor so the nowrap "promises second." unit has room at narrow widths without overflowing */
-  .hero h1{font-size:clamp(1.9rem,4.4vw,3.4rem)}
+  /* Smaller floor at narrow widths — headline now carries two nowrap units ("Rumble &amp; YouTube"
+     and "promises second."); 1.6rem avoids both overflow and an orphaned "on" on its own line */
+  .hero h1{font-size:clamp(1.6rem,4.4vw,2.3rem)}
   .nav-links{
     display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;
     background:rgba(12,12,12,.96);backdrop-filter:blur(16px);padding:22px;gap:18px;
@@ -577,7 +691,7 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
   }
   .nav-links.open{display:flex}
   .menu-btn{display:block}
-  .hero{padding:76px 0 60px}
+  .hero{padding:40px 0 32px}
 }
 </style>
 </head>
@@ -587,6 +701,14 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
 <div class="scroll-progress" id="scrollProgress"></div>
 <div class="orb a"></div><div class="orb b"></div><div class="orb c"></div>
 <button class="back-to-top" id="backToTop" aria-label="Back to top" type="button">↑</button>
+
+<!-- Thumbnail lightbox -->
+<div class="lightbox" id="thumbLightbox" role="dialog" aria-modal="true" aria-label="Thumbnail preview" hidden>
+  <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close preview">&times;</button>
+  <button type="button" class="lightbox-arrow lightbox-prev" id="lightboxPrev" aria-label="Previous thumbnail">‹</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <button type="button" class="lightbox-arrow lightbox-next" id="lightboxNext" aria-label="Next thumbnail">›</button>
+</div>
 
 <!-- ================= NAV ================= -->
 <nav>
@@ -613,11 +735,11 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy">
-        <span class="eyebrow">Music Promotion · Sync Licensing · Channel Growth</span>
-        <h1 class="hero-heading">We grow artists and creators with <span class="hl v">proof first</span>, <span style="white-space:nowrap">promises second.</span></h1>
-        <p class="lede">SUPREMEHORPSY prepares independent artists for sync licensing, promotes music that deserves an audience, and manages channels and books until the numbers speak for themselves. Every engagement starts with a <span class="hl">free proof of work</span>. You see results before you spend.</p>
+        <span class="eyebrow">Rumble &amp; YouTube Channel Management · Music Promotion · Sync Licensing</span>
+        <h1 class="hero-heading">We grow channels on <span style="white-space:nowrap">Rumble &amp; YouTube</span> with <span class="hl v">proof first</span>, <span style="white-space:nowrap">promises second.</span></h1>
+        <p class="lede">Channel audits, content optimization, thumbnails, SEO and full management for creators, ministries and brands — we show you results before we ask for payment.</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary btn-pulse" href="#contact">Request Your Free Proof of Work</a>
+          <a class="btn btn-primary btn-pulse" href="#contact">Get a Free Channel Audit</a>
           <a class="btn btn-ghost" href="#proof">See the Receipts</a>
         </div>
       </div>
@@ -642,6 +764,18 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
     <h2 class="section-title">Three service lines. <span class="hl">One standard:</span> results you can verify.</h2>
     <p class="section-sub">Music promotion and sync licensing sit at the heart of what we do, backed by hands on channel and book marketing for creators who publish beyond music.</p>
     <div class="services-grid">
+      <div class="service-card featured glass reveal">
+        <span class="flag">Most Popular</span>
+        <div class="service-icon" aria-hidden="true">📺</div>
+        <h3>Channel Management &amp; Growth (Rumble &amp; YouTube)</h3>
+        <p>Full-service channel management for Rumble and YouTube: free Tier 1 audit with one reworked video, then ongoing optimization — SEO, metadata health, thumbnails, scheduling and growth reporting.</p>
+        <ul>
+          <li>Free Tier 1 audit + one reworked video</li>
+          <li>SEO, titles and metadata health</li>
+          <li>Custom thumbnails and channel graphics</li>
+          <li>Scheduling, livestream support and growth reporting</li>
+        </ul>
+      </div>
       <div class="service-card glass reveal">
         <div class="service-icon" aria-hidden="true">🎬</div>
         <h3>Sync Licensing Readiness</h3>
@@ -665,14 +799,14 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
         </ul>
       </div>
       <div class="service-card glass reveal">
-        <div class="service-icon" aria-hidden="true">📈</div>
-        <h3>Channel and Book Marketing</h3>
-        <p>Full management for Rumble creators and independent authors.</p>
+        <div class="service-icon" aria-hidden="true">📚</div>
+        <h3>Book Marketing</h3>
+        <p>Full campaign support for independent authors, from launch to long-term visibility.</p>
         <ul>
-          <li>Channel SEO, titles and metadata</li>
-          <li>Thumbnails and channel graphics</li>
-          <li>Livestream setup and support</li>
-          <li>Author campaigns and book promotion</li>
+          <li>Author platform and launch assets</li>
+          <li>Book promotion and reader outreach</li>
+          <li>Launch email sequences</li>
+          <li>Ongoing visibility campaigns</li>
         </ul>
       </div>
     </div>
@@ -686,30 +820,59 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
     <h2 class="section-title">How We Work.</h2>
     <p class="section-sub">Five steps, in order, every time — no shortcuts, no surprises.</p>
     <div class="protocol-grid">
-      <div class="protocol-step reveal">
-        <div class="protocol-num" aria-hidden="true">01</div>
+      <div class="protocol-step metal-card reveal">
+        <div class="hover-glow" aria-hidden="true"></div>
+        <div class="protocol-top">
+          <div class="protocol-num" aria-hidden="true">01</div>
+          <div class="icon-badge" aria-hidden="true">🔍</div>
+        </div>
         <h3>Free Audit</h3>
         <p>We study your channel or catalog and identify exactly what's holding it back. No payment, no commitment.</p>
+        <span class="card-underline" aria-hidden="true"></span>
       </div>
-      <div class="protocol-step reveal">
-        <div class="protocol-num" aria-hidden="true">02</div>
+      <span class="protocol-dot" aria-hidden="true"></span>
+      <div class="protocol-step metal-card reveal">
+        <div class="hover-glow" aria-hidden="true"></div>
+        <div class="protocol-top">
+          <div class="protocol-num" aria-hidden="true">02</div>
+          <div class="icon-badge" aria-hidden="true">📦</div>
+        </div>
         <h3>Proof Delivered</h3>
         <p>You receive a real deliverable — a reworked video, audit report, or sync profile — before we ask for anything.</p>
+        <span class="card-underline" aria-hidden="true"></span>
       </div>
-      <div class="protocol-step reveal">
-        <div class="protocol-num" aria-hidden="true">03</div>
+      <span class="protocol-dot" aria-hidden="true"></span>
+      <div class="protocol-step metal-card reveal">
+        <div class="hover-glow" aria-hidden="true"></div>
+        <div class="protocol-top">
+          <div class="protocol-num" aria-hidden="true">03</div>
+          <div class="icon-badge" aria-hidden="true">🤝</div>
+        </div>
         <h3>Agreement</h3>
         <p>If the proof convinces you, we agree clear terms, scope, and pricing in writing.</p>
+        <span class="card-underline" aria-hidden="true"></span>
       </div>
-      <div class="protocol-step reveal">
-        <div class="protocol-num" aria-hidden="true">04</div>
+      <span class="protocol-dot" aria-hidden="true"></span>
+      <div class="protocol-step metal-card reveal">
+        <div class="hover-glow" aria-hidden="true"></div>
+        <div class="protocol-top">
+          <div class="protocol-num" aria-hidden="true">04</div>
+          <div class="icon-badge" aria-hidden="true">⚙️</div>
+        </div>
         <h3>Execution</h3>
         <p>We do the work: optimization, pitching, management, design — with updates as we go.</p>
+        <span class="card-underline" aria-hidden="true"></span>
       </div>
-      <div class="protocol-step reveal">
-        <div class="protocol-num" aria-hidden="true">05</div>
+      <span class="protocol-dot" aria-hidden="true"></span>
+      <div class="protocol-step metal-card reveal">
+        <div class="hover-glow" aria-hidden="true"></div>
+        <div class="protocol-top">
+          <div class="protocol-num" aria-hidden="true">05</div>
+          <div class="icon-badge" aria-hidden="true">📊</div>
+        </div>
         <h3>Reporting</h3>
         <p>You see the results in plain numbers. We keep what works, fix what doesn't.</p>
+        <span class="card-underline" aria-hidden="true"></span>
       </div>
     </div>
   </div>
@@ -722,25 +885,29 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
     <h2 class="section-title">Specialists under one roof.</h2>
     <p class="section-sub">Each provider on the team owns a service line and carries their own track record. You always know exactly who is working on your project.</p>
     <div class="team-grid">
-      <div class="member glass reveal">
+      <div class="member metal-card reveal">
+        <div class="hover-glow" aria-hidden="true"></div>
         <div class="avatar"><img src="assets/team-supremoh.jpg" alt="Supremoh, founder of SUPREMEHORPSY" loading="lazy"></div>
         <h3>Supremoh</h3>
         <div class="role">Founder and Sync Licensing Specialist</div>
         <p>Leads sync licensing readiness and overall growth strategy. Built the proof first model the whole team works by.</p>
       </div>
-      <div class="member glass reveal">
+      <div class="member metal-card reveal">
+        <div class="hover-glow" aria-hidden="true"></div>
         <div class="avatar"><img src="assets/team-biseman.jpg" alt="Biseman, Channel Growth and Rumble Promotion specialist" loading="lazy"></div>
         <h3>Biseman</h3>
         <div class="role">Channel Growth and Rumble Promotion</div>
         <p>Rumble and video channel promotion. Grew a client show to a five figure subscriber count with targeted audience work.</p>
       </div>
-      <div class="member glass reveal">
+      <div class="member metal-card reveal">
+        <div class="hover-glow" aria-hidden="true"></div>
         <div class="avatar"><img src="assets/team-bernardo.jpg" alt="Bernardo, SUPREMEHORPSY music promotion specialist" loading="lazy"></div>
         <h3>Bernardo</h3>
         <div class="role">Music Promotion and Artist Growth</div>
         <p>Drives music promotion and artist growth, turning finished releases into real audiences through targeted campaigns and consistent release rollouts.</p>
       </div>
-      <div class="member glass reveal">
+      <div class="member metal-card reveal">
+        <div class="hover-glow" aria-hidden="true"></div>
         <div class="avatar"><img src="assets/team-wura.jpg" alt="Wura, SUPREMEHORPSY book marketing specialist" loading="lazy"></div>
         <h3>Wura</h3>
         <div class="role">Book and Author Marketing</div>
@@ -844,28 +1011,31 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
       <div class="video-rail-viewport" id="videoRailViewport">
         <div class="video-rail" id="videoRail">
           <!-- VIDEO 1: Brian Kruse — Kruse Control Show (16:9) -->
-          <div class="video-tile glass reveal">
+          <div class="video-tile reveal">
             <iframe src="https://www.youtube.com/embed/BdjMERcC5lY"
               title="Client testimonial from Brian Kruse, host of the Kruse Control Show"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen loading="lazy"></iframe>
           </div>
+          <span class="protocol-dot" aria-hidden="true"></span>
           <!-- VIDEO 2: Redeemed By Grace Fellowship — ministry testimonial (16:9) -->
-          <div class="video-tile glass reveal">
+          <div class="video-tile reveal">
             <iframe src="https://www.youtube.com/embed/8Lu9ni3j_Xs"
               title="Client testimonial from Redeemed By Grace Fellowship, ministry digital growth client"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen loading="lazy"></iframe>
           </div>
+          <span class="protocol-dot" aria-hidden="true"></span>
           <!-- VIDEO 3: Rumble/YouTube creator promotion (short, 9:16) -->
-          <div class="video-tile vertical glass reveal">
+          <div class="video-tile vertical reveal">
             <iframe src="https://www.youtube.com/embed/94ax0OWa3bw"
               title="Client testimonial from a Rumble creator on our channel promotion service"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen loading="lazy"></iframe>
           </div>
+          <span class="protocol-dot" aria-hidden="true"></span>
           <!-- VIDEO 4: Ultramagachuck — Rumble creator (short, 9:16) -->
-          <div class="video-tile vertical glass reveal">
+          <div class="video-tile vertical reveal">
             <iframe src="https://www.youtube.com/embed/ee9k0EaQ0Ew"
               title="Client testimonial from Ultramagachuck, Rumble channel growth client"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -913,6 +1083,29 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
         <p class="ba-caption">Channel Banner Rework — drag to reveal</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ================= THUMBNAIL PORTFOLIO ================= -->
+<section id="thumbnails">
+  <div class="wrap">
+    <span class="eyebrow">Design Work</span>
+    <h2 class="section-title">Thumbnail Portfolio</h2>
+    <p class="section-sub">Thumbnails engineered to stop the scroll — designed for creators across faith, history, luxury, tech and music content.</p>
+    <div class="thumb-grid" id="thumbGrid"></div>
+    <div class="thumb-more-wrap">
+      <button type="button" class="btn btn-ghost" id="thumbMoreBtn" hidden>View More Work</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VIDEO EDITING PORTFOLIO ================= -->
+<section id="video-editing">
+  <div class="wrap">
+    <span class="eyebrow">Edited By Us</span>
+    <h2 class="section-title">Video Editing Portfolio</h2>
+    <p class="section-sub">Story-driven editing — pacing, sound design, and graphics that keep audiences watching to the end.</p>
+    <div class="edit-grid" id="editGrid"></div>
   </div>
 </section>
 
@@ -968,20 +1161,28 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
     <h2 class="section-title">How we work.</h2>
     <p class="section-sub">These are not slogans. They are the rules every team member delivers by.</p>
     <div class="values-grid">
-      <div class="value glass reveal">
-        <h3><em aria-hidden="true">🧾</em> Proof Before Ask</h3>
+      <div class="value metal-card reveal">
+        <div class="hover-glow" aria-hidden="true"></div>
+        <div class="icon-badge" aria-hidden="true">🧾</div>
+        <h3>Proof Before Ask</h3>
         <p>We show you finished work before we discuss money. If the free deliverable doesn't impress you, you owe us nothing.</p>
       </div>
-      <div class="value glass reveal">
-        <h3><em aria-hidden="true">📊</em> Numbers, Not Noise</h3>
+      <div class="value metal-card reveal">
+        <div class="hover-glow" aria-hidden="true"></div>
+        <div class="icon-badge" aria-hidden="true">📊</div>
+        <h3>Numbers, Not Noise</h3>
         <p>Every report comes with screenshots and figures you can verify yourself. We invite you to check our claims.</p>
       </div>
-      <div class="value glass reveal">
-        <h3><em aria-hidden="true">🤝</em> One Point of Contact</h3>
+      <div class="value metal-card reveal">
+        <div class="hover-glow" aria-hidden="true"></div>
+        <div class="icon-badge" aria-hidden="true">🤝</div>
+        <h3>One Point of Contact</h3>
         <p>You work with a named team member who knows your project, not a rotating help desk.</p>
       </div>
-      <div class="value glass reveal">
-        <h3><em aria-hidden="true">🌱</em> Long Term Growth</h3>
+      <div class="value metal-card reveal">
+        <div class="hover-glow" aria-hidden="true"></div>
+        <div class="icon-badge" aria-hidden="true">🌱</div>
+        <h3>Long Term Growth</h3>
         <p>We build audiences and catalogs that keep working for you after the campaign ends, not vanity spikes.</p>
       </div>
     </div>
@@ -1021,9 +1222,9 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
         <div class="af-step" data-step="2">
           <label id="af-project-label">What kind of project is this?</label>
           <div class="af-choices" role="group" aria-labelledby="af-project-label">
+            <button type="button" class="af-choice" data-value="Channel Management">Channel Management</button>
             <button type="button" class="af-choice" data-value="Sync Licensing">Sync Licensing</button>
             <button type="button" class="af-choice" data-value="Music Promotion">Music Promotion</button>
-            <button type="button" class="af-choice" data-value="Channel Management">Channel Management</button>
             <button type="button" class="af-choice" data-value="Book Marketing">Book Marketing</button>
           </div>
           <p class="af-choice-desc" id="afChoiceDesc" aria-live="polite"></p>
@@ -1331,6 +1532,163 @@ document.querySelectorAll('.ba-frame').forEach((frame) => {
   });
 });
 
+// Thumbnail Portfolio — ADD NEW THUMBNAILS HERE. Each filename is probed with a
+// throwaway Image() first; files that 404 are skipped silently, never shown broken.
+const thumbnailFiles = [
+  'thumb-01.jpg', 'thumb-02.jpg', 'thumb-03.jpg',
+  'thumb-04.jpg', 'thumb-05.jpg', 'thumb-06.jpg'
+  // , 'thumb-07.jpg', 'thumb-08.jpg'  <- add more filenames here as they're dropped into assets/thumbnails/
+];
+const thumbGrid = document.getElementById('thumbGrid');
+const thumbMoreBtn = document.getElementById('thumbMoreBtn');
+if (thumbGrid) {
+  const loadedFiles = [];
+  let checkedCount = 0;
+  thumbnailFiles.forEach((file, i) => {
+    const probe = new Image();
+    probe.onload = () => { loadedFiles[i] = file; onProbed(); };
+    probe.onerror = () => { onProbed(); };
+    probe.src = `assets/thumbnails/${file}`;
+  });
+  function onProbed() {
+    checkedCount++;
+    if (checkedCount === thumbnailFiles.length) renderThumbs(loadedFiles.filter(Boolean));
+  }
+  function renderThumbs(files) {
+    const section = thumbGrid.closest('section');
+    if (!files.length) { if (section) section.style.display = 'none'; return; }
+    files.forEach((file, i) => {
+      const tile = document.createElement('button');
+      tile.type = 'button';
+      tile.className = 'thumb-tile reveal';
+      if (i >= 6) tile.hidden = true;
+      const img = document.createElement('img');
+      img.src = `assets/thumbnails/${file}`;
+      img.alt = `SUPREMEHORPSY thumbnail design ${i + 1}`;
+      img.loading = 'lazy';
+      tile.appendChild(img);
+      tile.addEventListener('click', () => openLightbox(files, i));
+      thumbGrid.appendChild(tile);
+      io.observe(tile);
+    });
+    if (files.length > 6 && thumbMoreBtn) {
+      thumbMoreBtn.hidden = false;
+      thumbMoreBtn.addEventListener('click', () => {
+        thumbGrid.querySelectorAll('.thumb-tile[hidden]').forEach((el) => { el.hidden = false; });
+        thumbMoreBtn.hidden = true;
+      });
+    }
+  }
+}
+
+// Lightbox — dark backdrop, close via X/backdrop/Escape, arrow buttons + keys,
+// touch swipe, and a focus trap while open.
+const lightbox = document.getElementById('thumbLightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxClose = document.getElementById('lightboxClose');
+const lightboxPrev = document.getElementById('lightboxPrev');
+const lightboxNext = document.getElementById('lightboxNext');
+let lightboxFiles = [];
+let lightboxIndex = 0;
+let lightboxLastFocused = null;
+
+function updateLightboxImg() {
+  const file = lightboxFiles[lightboxIndex];
+  lightboxImg.src = `assets/thumbnails/${file}`;
+  lightboxImg.alt = `SUPREMEHORPSY thumbnail design ${lightboxIndex + 1}`;
+}
+function openLightbox(files, index) {
+  if (!lightbox) return;
+  lightboxFiles = files;
+  lightboxIndex = index;
+  lightboxLastFocused = document.activeElement;
+  updateLightboxImg();
+  lightbox.hidden = false;
+  document.body.style.overflow = 'hidden';
+  lightboxClose.focus();
+}
+function closeLightbox() {
+  if (!lightbox || lightbox.hidden) return;
+  lightbox.hidden = true;
+  document.body.style.overflow = '';
+  if (lightboxLastFocused) lightboxLastFocused.focus();
+}
+function lightboxShowPrev() { lightboxIndex = (lightboxIndex - 1 + lightboxFiles.length) % lightboxFiles.length; updateLightboxImg(); }
+function lightboxShowNext() { lightboxIndex = (lightboxIndex + 1) % lightboxFiles.length; updateLightboxImg(); }
+
+if (lightbox) {
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightboxPrev.addEventListener('click', lightboxShowPrev);
+  lightboxNext.addEventListener('click', lightboxShowNext);
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.hidden) return;
+    if (e.key === 'Escape') { closeLightbox(); return; }
+    if (e.key === 'ArrowLeft') { lightboxShowPrev(); return; }
+    if (e.key === 'ArrowRight') { lightboxShowNext(); return; }
+    if (e.key === 'Tab') {
+      const focusables = [lightboxClose, lightboxPrev, lightboxNext];
+      const first = focusables[0], last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+
+  let lightboxTouchStartX = 0;
+  lightbox.addEventListener('touchstart', (e) => { lightboxTouchStartX = e.touches[0].clientX; }, {passive: true});
+  lightbox.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].clientX - lightboxTouchStartX;
+    if (Math.abs(dx) > 40) { dx > 0 ? lightboxShowPrev() : lightboxShowNext(); }
+  }, {passive: true});
+}
+
+// Video Editing Portfolio — click-to-load YouTube facade (thumbnail + play button
+// until clicked, so nothing loads from YouTube until the visitor asks for it).
+const editReels = [
+  { youtubeId: 'JDXXYyO4uhY', title: 'F1 News Edit — Mercedes / Toto Wolff' },
+  { youtubeId: 'ZXer2oc0Ons', title: 'F1 Compilation Edit — Top Crashes 2023' },
+  { youtubeId: '3YVsAyOYKzo', title: 'F1 Analysis Edit — 2024 Driver Changes' },
+  { youtubeId: 'EurGfZnadjw', title: 'F1 Tech Edit — Mercedes W15' }
+  // , { youtubeId: 'XXXXXXXXXXX', title: 'New edit title' }  <- add new reels here
+];
+const editGrid = document.getElementById('editGrid');
+if (editGrid) {
+  const originalCardHtml = new Map();
+  editReels.forEach((reel, i) => {
+    const card = document.createElement('div');
+    card.className = 'edit-card reveal';
+    card.innerHTML = `
+      <button type="button" class="edit-play" data-index="${i}" aria-label="Play video: ${reel.title}">
+        <img src="https://i.ytimg.com/vi/${reel.youtubeId}/hqdefault.jpg" alt="" loading="lazy">
+        <span class="edit-play-icon" aria-hidden="true"></span>
+      </button>
+      <p class="edit-caption">${reel.title}</p>
+    `;
+    originalCardHtml.set(card, card.innerHTML);
+    editGrid.appendChild(card);
+    io.observe(card);
+  });
+
+  let currentPlayingCard = null;
+  editGrid.addEventListener('click', (e) => {
+    const playBtn = e.target.closest('.edit-play');
+    if (!playBtn) return;
+    const card = playBtn.closest('.edit-card');
+    const reel = editReels[Number(playBtn.dataset.index)];
+    if (currentPlayingCard && currentPlayingCard !== card) {
+      currentPlayingCard.innerHTML = originalCardHtml.get(currentPlayingCard);
+    }
+    card.innerHTML = `
+      <iframe class="edit-iframe" src="https://www.youtube-nocookie.com/embed/${reel.youtubeId}?autoplay=1"
+        title="${reel.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen loading="lazy"></iframe>
+      <p class="edit-caption">${reel.title}</p>
+    `;
+    currentPlayingCard = card;
+  });
+}
+
 // Cursor glow — eased mouse-follow highlight in the hero
 const heroEl = document.querySelector('.hero');
 const glowEl = document.querySelector('.cursor-glow');
@@ -1466,9 +1824,10 @@ if (afForm) {
   const projectInput = document.getElementById('cf-project');
   const projectNext = document.getElementById('afProjectNext');
   const choiceDesc = document.getElementById('afChoiceDesc');
-  afForm.querySelectorAll('.af-choice').forEach((choice) => {
+  const allChoices = afForm.querySelectorAll('.af-choice');
+  allChoices.forEach((choice) => {
     choice.addEventListener('click', () => {
-      afForm.querySelectorAll('.af-choice').forEach((c) => c.classList.remove('selected'));
+      allChoices.forEach((c) => c.classList.remove('selected'));
       choice.classList.add('selected');
       if (projectInput) projectInput.value = choice.dataset.value;
       if (projectNext) projectNext.disabled = false;
@@ -1478,6 +1837,9 @@ if (afForm) {
       }
     });
   });
+  // Channel Management leads the site's positioning — pre-select it so its
+  // description shows by default instead of the empty "select one" state.
+  if (allChoices.length) allChoices[0].click();
 
   steps[0].classList.add('active');
   if (progressBar) progressBar.style.width = `${(1 / steps.length) * 100}%`;
