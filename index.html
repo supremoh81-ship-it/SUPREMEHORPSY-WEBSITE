@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SUPREMEHORPSY | Rumble &amp; YouTube Channel Management and Growth</title>
-<meta name="description" content="SUPREMEHORPSY manages and grows Rumble and YouTube channels with proof first: free audits, SEO, thumbnails and reporting, plus sync licensing, music promotion and book marketing.">
+<title>SUPREMEHORPSY | Music Sync Licensing &amp; Placement for Independent Artists</title>
+<meta name="description" content="SUPREMEHORPSY gets independent artists' music licensed and placed in film, TV, advertising and documentaries. Free catalog audit, sync-ready profiles and commission-based pitching, with real placements as proof.">
 <link rel="canonical" href="https://supremehorpsy-website.vercel.app/">
 <meta name="theme-color" content="#0C0C0C">
 <link rel="icon" type="image/png" href="assets/logo.png">
@@ -12,13 +12,13 @@
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SUPREMEHORPSY">
-<meta property="og:title" content="SUPREMEHORPSY | Rumble &amp; YouTube Channel Management and Growth">
-<meta property="og:description" content="We grow channels on Rumble &amp; YouTube with proof first, promises second. Channel audits, SEO, thumbnails and growth reporting, plus sync licensing, music promotion and book marketing.">
+<meta property="og:title" content="SUPREMEHORPSY | Music Sync Licensing &amp; Placement for Independent Artists">
+<meta property="og:description" content="We get independent music placed in film, TV, ads and documentaries, with proof first and promises second. Catalog audits, sync-ready profiles and placement pitching.">
 <meta property="og:image" content="https://supremehorpsy-website.vercel.app/assets/brand-supremoh.jpg">
 <meta property="og:url" content="https://supremehorpsy-website.vercel.app/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SUPREMEHORPSY | Rumble &amp; YouTube Channel Management and Growth">
-<meta name="twitter:description" content="We grow channels on Rumble &amp; YouTube with proof first, promises second. Channel audits, SEO, thumbnails and growth reporting, plus sync licensing, music promotion and book marketing.">
+<meta name="twitter:title" content="SUPREMEHORPSY | Music Sync Licensing &amp; Placement for Independent Artists">
+<meta name="twitter:description" content="We get independent music placed in film, TV, ads and documentaries, with proof first and promises second. Catalog audits, sync-ready profiles and placement pitching.">
 <meta name="twitter:image" content="https://supremehorpsy-website.vercel.app/assets/brand-supremoh.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +30,7 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "SUPREMEHORPSY",
-  "description": "Rumble and YouTube channel management and growth, plus sync licensing, music promotion and book marketing. Proof first, promises second.",
+  "description": "Music sync licensing and placement for independent artists: catalog audits, sync-ready profiles and pitching to film, TV, advertising and documentary. Also music promotion, channel management and book marketing. Proof first, promises second.",
   "url": "https://supremehorpsy-website.vercel.app",
   "logo": "https://supremehorpsy-website.vercel.app/assets/logo.png",
   "founder": { "@type": "Person", "name": "Supremoh" },
@@ -681,7 +681,7 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
   .services-grid,.team-grid,.values-grid,.metric-rail{grid-template-columns:1fr}
   .testimonial-marquee .quote{width:300px}
   .foot-grid{grid-template-columns:1fr}
-  /* Smaller floor at narrow widths — headline now carries two nowrap units ("Rumble &amp; YouTube"
+  /* Smaller floor at narrow widths — headline now carries two nowrap units ("placed on screen"
      and "promises second."); 1.6rem avoids both overflow and an orphaned "on" on its own line */
   .hero h1{font-size:clamp(1.6rem,4.4vw,2.3rem)}
   .nav-links{
@@ -693,6 +693,27 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
   .menu-btn{display:block}
   .hero{padding:40px 0 32px}
 }
+
+/* ---------- placement portfolio ---------- */
+#placements{background:var(--dark-bg);color:var(--mist)}
+#placements .section-title{color:var(--mist)}
+#placements .section-sub{color:var(--mist-dim)}
+.placement-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.placement-card{display:flex;flex-direction:column;gap:10px;padding:28px;text-decoration:none}
+.placement-type{
+  position:relative;align-self:flex-start;font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;color:#FFC9A3;background:rgba(255,106,19,.2);padding:5px 12px;border-radius:999px;
+}
+.placement-card h3{font-size:1.5rem}
+.placement-artist{position:relative;font-weight:600;color:var(--sky)}
+.placement-meta{position:relative;margin-top:auto;display:grid;gap:8px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08)}
+.placement-meta div{display:flex;justify-content:space-between;gap:12px;font-size:.88rem}
+.placement-meta dt{color:var(--mist-dim)}
+.placement-meta dd{color:var(--mist);font-family:'JetBrains Mono',monospace;text-align:right}
+.placement-cta{justify-content:center;border-style:dashed}
+.placement-cta .btn{position:relative;align-self:flex-start;margin-top:8px}
+@media (max-width:960px){.placement-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.placement-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -717,6 +738,7 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
     <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="navlinks" onclick="const l=document.getElementById('navlinks');l.classList.toggle('open');this.setAttribute('aria-expanded', l.classList.contains('open'))">☰</button>
     <ul class="nav-links" id="navlinks">
       <li><a href="#services">Services</a></li>
+      <li><a href="#placements">Placements</a></li>
       <li><a href="#team">Team</a></li>
       <li><a href="#proof">Proof</a></li>
       <li><a href="#packages">Packages</a></li>
@@ -735,12 +757,12 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy">
-        <span class="eyebrow">Rumble &amp; YouTube Channel Management · Music Promotion · Sync Licensing</span>
-        <h1 class="hero-heading">We grow channels on <span style="white-space:nowrap">Rumble &amp; YouTube</span> with <span class="hl v">proof first</span>, <span style="white-space:nowrap">promises second.</span></h1>
-        <p class="lede">Channel audits, content optimization, thumbnails, SEO and full management for creators, ministries and brands. We show you results before we ask for payment.</p>
+        <span class="eyebrow">Music Sync Licensing · Film, TV &amp; Ad Placements · Artist Development</span>
+        <h1 class="hero-heading">We get your music <span style="white-space:nowrap">placed on screen</span> with <span class="hl v">proof first</span>, <span style="white-space:nowrap">promises second.</span></h1>
+        <p class="lede">Sync licensing and placement for independent artists and producers. We audit your catalog, make it clearance ready, and pitch your tracks to film, TV, advertising and documentary. Real placements, not promises.</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary btn-pulse" href="#contact">Get a Free Channel Audit</a>
-          <a class="btn btn-ghost" href="#proof">See the Receipts</a>
+          <a class="btn btn-primary btn-pulse" href="#contact">Get a Free Catalog Audit</a>
+          <a class="btn btn-ghost" href="#placements">See Our Placements</a>
         </div>
       </div>
       <div class="hero-portrait">
@@ -750,9 +772,9 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
       </div>
     </div>
     <div class="metric-rail">
-      <div class="metric glass reveal"><div class="num"><span class="count" data-target="21.2" data-decimals="1">21.2</span><span class="suffix">K</span></div><div class="lab">Followers on a managed Rumble channel</div></div>
-      <div class="metric glass reveal"><div class="num"><span class="count" data-target="4.4" data-decimals="1">4.4</span><span class="suffix">K</span> → <span class="count" data-target="11" data-decimals="0">11</span><span class="suffix">K</span></div><div class="lab">Instagram growth for one artist client</div></div>
-      <div class="metric glass reveal"><div class="num">TV Placement</div><div class="lab">Client track placed on a network series</div></div>
+      <div class="metric glass reveal"><div class="num">TV Placement</div><div class="lab">"Trap Ville" placed on a network TV series</div></div>
+      <div class="metric glass reveal"><div class="num"><span class="count" data-target="5" data-decimals="0">5</span></div><div class="lab">Licensing requests for one sync client</div></div>
+      <div class="metric glass reveal"><div class="num"><span class="count" data-target="4.4" data-decimals="1">4.4</span><span class="suffix">K</span> → <span class="count" data-target="11" data-decimals="0">11</span><span class="suffix">K</span></div><div class="lab">Audience growth for a placed artist</div></div>
     </div>
   </div>
 </header>
@@ -761,36 +783,25 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
 <section id="services">
   <div class="wrap">
     <span class="eyebrow">What We Do</span>
-    <h2 class="section-title">Three service lines. <span class="hl">One standard:</span> results you can verify.</h2>
-    <p class="section-sub">Music promotion and sync licensing sit at the heart of what we do, backed by hands on channel and book marketing for creators who publish beyond music.</p>
+    <h2 class="section-title">Sync licensing first. <span class="hl">One standard:</span> placements you can verify.</h2>
+    <p class="section-sub">Getting independent music licensed and placed is our core work. Promotion, channel management and book marketing support the artists and creators we work with.</p>
     <div class="services-grid">
       <div class="service-card featured glass reveal">
-        <span class="flag">Most Popular</span>
-        <div class="service-icon" aria-hidden="true">📺</div>
-        <h3>Channel Management &amp; Growth (Rumble &amp; YouTube)</h3>
-        <p>Full-service channel management for Rumble and YouTube. Free Tier 1 audit with one reworked video, then ongoing optimization: SEO, metadata health, thumbnails, scheduling and growth reporting.</p>
-        <ul>
-          <li>Free Tier 1 audit + one reworked video</li>
-          <li>SEO, titles and metadata health</li>
-          <li>Custom thumbnails and channel graphics</li>
-          <li>Scheduling, livestream support and growth reporting</li>
-        </ul>
-      </div>
-      <div class="service-card glass reveal">
+        <span class="flag">Core Service</span>
         <div class="service-icon" aria-hidden="true">🎬</div>
-        <h3>Sync Licensing Readiness</h3>
-        <p>We prepare your catalog for film, TV, advertising and documentary placements.</p>
+        <h3>Sync Licensing &amp; Placement</h3>
+        <p>We prepare your catalog for licensing and pitch your tracks to music supervisors, libraries and productions across film, TV, advertising and documentary.</p>
         <ul>
-          <li>Full catalog and metadata audit</li>
-          <li>Stems, ownership and PRO checks</li>
-          <li>One stop clearance preparation</li>
-          <li>Placement lane strategy per track</li>
+          <li>Free catalog and metadata audit</li>
+          <li>Stems, splits, ownership and PRO checks</li>
+          <li>One stop clearance preparation and sync-ready profiles</li>
+          <li>Commission-based pitching with a placement lane per track</li>
         </ul>
       </div>
       <div class="service-card glass reveal">
         <div class="service-icon" aria-hidden="true">🚀</div>
-        <h3>Music Promotion</h3>
-        <p>We put finished music in front of real listeners and grow the audience around it.</p>
+        <h3>Music Promotion &amp; Artist Growth</h3>
+        <p>We build the audience around your releases so supervisors and fans find an active, credible artist.</p>
         <ul>
           <li>Social profile growth campaigns</li>
           <li>Release rollout and content strategy</li>
@@ -799,16 +810,65 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
         </ul>
       </div>
       <div class="service-card glass reveal">
+        <div class="service-icon" aria-hidden="true">📺</div>
+        <h3>Channel Management</h3>
+        <p>Optimization and growth for Rumble and YouTube channels: SEO, metadata, thumbnails, scheduling and reporting.</p>
+        <ul>
+          <li>Free audit with one reworked video</li>
+          <li>SEO, titles and thumbnails</li>
+        </ul>
+      </div>
+      <div class="service-card glass reveal">
         <div class="service-icon" aria-hidden="true">📚</div>
         <h3>Book Marketing</h3>
-        <p>Full campaign support for independent authors, from launch to long-term visibility.</p>
+        <p>Campaign support for independent authors, from launch to long-term visibility.</p>
         <ul>
           <li>Author platform and launch assets</li>
           <li>Book promotion and reader outreach</li>
-          <li>Launch email sequences</li>
-          <li>Ongoing visibility campaigns</li>
         </ul>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PLACEMENTS PORTFOLIO =================
+     To add a placement: copy one <article class="placement-card"> block below and
+     fill in the artist, track, where it was placed, deal type and year. -->
+<section id="placements">
+  <div class="wrap">
+    <span class="eyebrow">Placement Portfolio</span>
+    <h2 class="section-title">Deals we've helped <span class="hl">close.</span></h2>
+    <p class="section-sub">Every placement below is real work for a real artist. Ask us and we'll walk you through how each deal came together.</p>
+    <div class="placement-grid">
+      <article class="placement-card metal-card reveal">
+        <div class="hover-glow" aria-hidden="true"></div>
+        <span class="placement-type">TV Series</span>
+        <h3>"Trap Ville"</h3>
+        <div class="placement-artist">Jordon Frank</div>
+        <p>Placed on a network TV series after we rebuilt the artist's release rhythm and positioned the catalog for sync.</p>
+        <dl class="placement-meta">
+          <div><dt>Placement</dt><dd>Network TV series</dd></div>
+          <div><dt>Result</dt><dd>Licensed and aired</dd></div>
+        </dl>
+      </article>
+      <article class="placement-card metal-card reveal">
+        <div class="hover-glow" aria-hidden="true"></div>
+        <span class="placement-type">Sync Consulting</span>
+        <h3>5 licensing requests</h3>
+        <div class="placement-artist">Morris Jane</div>
+        <p>Catalog prepared and profiled for sync, leading to five licensing requests for an independent artist.</p>
+        <dl class="placement-meta">
+          <div><dt>Service</dt><dd>Sync readiness and pitching</dd></div>
+          <div><dt>Result</dt><dd>5 licensing requests</dd></div>
+        </dl>
+      </article>
+      <a class="placement-card placement-cta metal-card reveal" href="#contact">
+        <div class="hover-glow" aria-hidden="true"></div>
+        <span class="placement-type">Your Track</span>
+        <h3>Could be next.</h3>
+        <p>Send us your catalog for a free sync readiness audit.</p>
+        <span class="btn btn-primary">Get a Free Catalog Audit</span>
+      </a>
     </div>
   </div>
 </section>
@@ -827,7 +887,7 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
           <div class="icon-badge" aria-hidden="true">🔍</div>
         </div>
         <h3>Free Audit</h3>
-        <p>We study your channel or catalog and identify exactly what's holding it back. No payment, no commitment.</p>
+        <p>We study your catalog (or channel) and identify exactly what's holding it back from getting licensed. No payment, no commitment.</p>
         <span class="card-underline" aria-hidden="true"></span>
       </div>
       <span class="protocol-dot" aria-hidden="true"></span>
@@ -939,7 +999,7 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
         </div>
       </div>
       <div class="case-body reveal">
-        <span class="tag">Music Promotion</span>
+        <span class="tag">Sync Placement · Music Promotion</span>
         <h3>Jordon Frank: from 4.4K to 11K followers, then a TV placement</h3>
         <p>A working artist with strong material and a quiet profile. We rebuilt the content rhythm, pushed the right releases to the right audiences, and the catalog started opening doors.</p>
         <div class="result-line">Instagram audience grew from 4,402 to 11,000 followers</div>
@@ -1120,7 +1180,7 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
         <h3>Proof of Work</h3>
         <div class="price">Free <small>· fixed scope · 3 to 4 days</small></div>
         <ul>
-          <li>Full audit of your channel, catalog or book presence</li>
+          <li>Full sync readiness audit of your catalog (channels and books too)</li>
           <li>One complete rework sample (one video, one track profile, or one campaign asset)</li>
           <li>Written recommendations you keep either way</li>
           <li>No card, no commitment</li>
@@ -1132,10 +1192,10 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
         <h3>Launch</h3>
         <div class="price">Custom <small>· per project quote</small></div>
         <ul>
-          <li>Full implementation of the audit recommendations</li>
-          <li>SEO, metadata and graphics across your catalog or channel</li>
-          <li>Release or campaign rollout with weekly reports</li>
           <li>Sync licensing profiles for placement ready tracks</li>
+          <li>Metadata, stems and clearance prep across your catalog</li>
+          <li>Pitching to supervisors, libraries and productions</li>
+          <li>Weekly reports on pitches and responses</li>
         </ul>
         <a class="btn btn-primary" href="#contact">Request a Quote</a>
       </div>
@@ -1194,8 +1254,8 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
   <div class="wrap">
     <div class="cta-panel glass reveal">
       <span class="eyebrow">Start Here</span>
-      <h2>Ready to see what we'd do with <span class="hl v">your project?</span></h2>
-      <p>Send us your channel, catalog or book. Within a few days you'll have a free audit and one finished sample in your hands. Then you decide.</p>
+      <h2>Ready to get your music <span class="hl v">placed?</span></h2>
+      <p>Send us your catalog. Within a few days you'll have a free sync readiness audit and a placement plan for your strongest tracks. Then you decide.</p>
       <div class="cta-actions">
         <a class="btn btn-primary btn-pulse" href="mailto:horpsymediagroup@gmail.com?subject=SUPREMEHORPSY%20Inquiry">Email the Team</a>
         <a class="btn btn-ghost-dark" href="https://t.me/supremehorpsy">Message Us on Telegram</a>
@@ -1222,9 +1282,9 @@ footer{padding:56px 0 32px;border-top:1px solid rgba(255,178,56,.14);margin-top:
         <div class="af-step" data-step="2">
           <label id="af-project-label">What kind of project is this?</label>
           <div class="af-choices" role="group" aria-labelledby="af-project-label">
-            <button type="button" class="af-choice" data-value="Channel Management">Channel Management</button>
             <button type="button" class="af-choice" data-value="Sync Licensing">Sync Licensing</button>
             <button type="button" class="af-choice" data-value="Music Promotion">Music Promotion</button>
+            <button type="button" class="af-choice" data-value="Channel Management">Channel Management</button>
             <button type="button" class="af-choice" data-value="Book Marketing">Book Marketing</button>
           </div>
           <p class="af-choice-desc" id="afChoiceDesc" aria-live="polite"></p>
@@ -1837,7 +1897,7 @@ if (afForm) {
       }
     });
   });
-  // Channel Management leads the site's positioning — pre-select it so its
+  // Sync Licensing leads the site's positioning (first choice) — pre-select it so its
   // description shows by default instead of the empty "select one" state.
   if (allChoices.length) allChoices[0].click();
 
